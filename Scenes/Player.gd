@@ -178,6 +178,12 @@ func fire_gun():
 		
 		bc.rotate(ray_pistol.get_collision_normal(),randf_range(0, 2*PI) )"""
 		
+		var b = bullet_decal.instantiate()
+		get_tree().get_root().get_node("Game/Bullet_decals").call_deferred("add_child",b,true)
+		var bc = b.get_child(0)
+		bc.global_transform = Transform3D(Quaternion(Vector3.UP, ray_pistol.get_collision_normal()),ray_pistol.get_collision_point())
+		bc.rotate(ray_pistol.get_collision_normal(),randf_range(0, 2*PI) )
+		
 		#$Pistol_stuff/AudioStreamPlayer3D.pitch_scale = randf_range(0.9,1.1)
 		#$Pistol_stuff/AudioStreamPlayer3D.play()
 		
