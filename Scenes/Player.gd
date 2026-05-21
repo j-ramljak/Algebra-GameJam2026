@@ -210,13 +210,15 @@ func fire_gun():
 		bc.global_transform = Transform3D(Quaternion(Vector3.UP, ray_pistol.get_collision_normal()),ray_pistol.get_collision_point())
 		randomize()
 		bc.rotate(ray_pistol.get_collision_normal(),randf_range(0, 2*PI) )
-		$Pistol_stuff/Gunshot.pitch_scale = randf_range(0.8,1.1)
+		$Pistol_stuff/Gunshot.pitch_scale = randf_range(0.9,1.1)
 		#$Pistol_stuff/AudioStreamPlayer3D.play()
 		
 		#$Shotgun_stuff/Flash.hide()
 
 
 func _on_timer_timeout() -> void:
+	if canShoot == false:
+		$Pistol_stuff/Shell.play()
 	canShoot = true
 
 func resume_pressed() -> void:

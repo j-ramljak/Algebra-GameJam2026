@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://c6ij8l1e1vmvj"]
 
 [ext_resource type="Script" uid="uid://n6sidbaqpll1" path="res://Scenes/Player.gd" id="1_3hthm"]
+[ext_resource type="Script" uid="uid://bgdhauln3d84v" path="res://Scenes/interact_ray.gd" id="3_bhhdu"]
 [ext_resource type="Texture2D" uid="uid://sh8xaq2d11b1" path="res://Textures/cross.png" id="3_gntrk"]
 [ext_resource type="AudioStream" uid="uid://dwd6qppgut8mq" path="res://SFX/Gunshot2.wav" id="3_nn08x"]
 [ext_resource type="Material" uid="uid://d3ch786tjcwgn" path="res://Flash.tres" id="4_5ixxa"]
+[ext_resource type="AudioStream" uid="uid://c1v1bjst284ei" path="res://SFX/Shell.wav" id="4_52ee3"]
 [ext_resource type="Script" uid="uid://c78e2bdqj687y" path="res://Scenes/footstep_timer.gd" id="5_nn08x"]
 [ext_resource type="AudioStream" uid="uid://dxd3wkb50j3ib" path="res://SFX/FootstepsConcrete1.wav" id="6_52ee3"]
 
@@ -52,6 +54,29 @@ material = ExtResource("4_5ixxa")
 offset_right = 1920.0
 offset_bottom = 1080.0
 
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera3D" unique_id=1714272365]
+target_position = Vector3(0, 0, -4)
+script = ExtResource("3_bhhdu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Head/Camera3D/InteractRay" unique_id=1671205977]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Head/Camera3D/InteractRay/VBoxContainer" unique_id=2031006801]
+custom_minimum_size = Vector2(0, 1000)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Head/Camera3D/InteractRay/VBoxContainer" unique_id=1115606025]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "E - use"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="OmniLight3D" type="OmniLight3D" parent="Head" unique_id=1055169006]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681, 0)
 visible = false
@@ -73,12 +98,21 @@ omni_range = 1.0
 [node name="Pistol_stuff" type="Node3D" parent="." unique_id=452996778]
 
 [node name="Timer" type="Timer" parent="Pistol_stuff" unique_id=984790886]
-wait_time = 1.5
+wait_time = 0.9
 
 [node name="Gunshot" type="AudioStreamPlayer3D" parent="Pistol_stuff" unique_id=2008524710]
 stream = ExtResource("3_nn08x")
 attenuation_model = 3
+volume_db = -2.0
 max_polyphony = 6
+
+[node name="Shell" type="AudioStreamPlayer3D" parent="Pistol_stuff" unique_id=2014547957]
+stream = ExtResource("4_52ee3")
+attenuation_model = 3
+volume_db = -1.0
+pitch_scale = 0.9
+max_polyphony = 3
+panning_strength = 0.0
 
 [node name="Flash" type="SpotLight3D" parent="Pistol_stuff" unique_id=781294204]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.682666, -0.905494)
@@ -148,6 +182,10 @@ stream = ExtResource("6_52ee3")
 attenuation_model = 3
 max_polyphony = 2
 panning_strength = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=469470709]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="Pistol_stuff/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Pistol_stuff/Flash_timer" to="." method="_on_flash_timer_timeout"]
