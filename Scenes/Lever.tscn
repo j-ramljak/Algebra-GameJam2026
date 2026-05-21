@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dh7hrq6otcque"]
 
+[ext_resource type="Script" uid="uid://bl7kmxphvcse6" path="res://Scenes/lever.gd" id="1_4x58u"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_wusd6"]
 size = Vector3(0.2, 1, 0.2)
 
@@ -10,6 +12,7 @@ albedo_color = Color(1, 0.48190057, 0.45191783, 1)
 size = Vector3(0.4, 1, 0.4)
 
 [node name="Lever" type="StaticBody3D" unique_id=1135703556]
+script = ExtResource("1_4x58u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1923176475]
 mesh = SubResource("BoxMesh_wusd6")
