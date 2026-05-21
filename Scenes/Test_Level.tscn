@@ -67,14 +67,15 @@ mesh = SubResource("BoxMesh_3d0ua")
 shape = SubResource("ConcavePolygonShape3D_8p2tx")
 
 [node name="Bullet_decals" type="Node3D" parent="." unique_id=766028475]
+unique_name_in_owner = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=967486920]
 environment = SubResource("Environment_2v7ry")
-
-[node name="pause_menu" parent="." unique_id=1386414847 instance=ExtResource("2_wfdhh")]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1969589776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4758847, 5.0617514)
 light_energy = 5.436
 spot_range = 10.808658
 spot_angle = 32.493576
+
+[node name="pause_menu" parent="." unique_id=1386414847 instance=ExtResource("2_wfdhh")]

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d3ch786tjcwgn"]
+
+[ext_resource type="Shader" uid="uid://ba4uygltcu8e7" path="res://Scenes/FlashShader.gdshader" id="1_tgx53"]
+
+[resource]
+shader = ExtResource("1_tgx53")
+shader_parameter/brightness = 0.49999996647200007
+shader_parameter/contrast = 3.999999687072
+shader_parameter/saturation = 3.249999703836

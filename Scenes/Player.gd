@@ -18,6 +18,9 @@ var CamH = Vector3(0,0.697,0)
 @onready var body = $"."
 @onready var sub_cam: Camera3D = %SubCam
 
+@onready var FlashShader: ColorRect = $Head/Camera3D/CanvasLayer/ColorRect
+
+
 #@onready var MainMenu = preload("res://Scripts/main_menu.gd")
 #var PClass = MainMenu.playerClass
 #weapons
@@ -42,6 +45,13 @@ var paused = false
 #var torchOut = true
 
 func _ready():
+	FlashShader.hide();
+	#resume.pressed().connect(resume_pressed)
+	#quit.pressed().connect(quit_pressed)
+	
+	pause_menu.r_pressed.connect(resume_pressed)
+	pause_menu.q_pressed.connect(quit_pressed)
+	
 	#print(get_tree().get_root().get_node("Game/CanvasLayer/Main_Menu"))
 	#PClass = MainMenu.playerClass
 	$Pistol_stuff/Flash.hide()
@@ -153,11 +163,15 @@ func _headbob(time) -> Vector3:
 func fire_gun():
 	#if Input.is_action_just_pressed("Fire") and PlayerSingletons.playerClass == "Gunslinger":
 	if canShoot:
+		$Pistol_stuff/AudioStreamPlayer3D.play()
 		canShoot = false
 		$Pistol_stuff/Timer.start()
 		$Pistol_stuff/Flash_timer.start()
-		$Pistol_stuff/Flash.show()
-		$Pistol_stuff/Flash2.show()
+		#FlashShader.show()
+		
+		
+		#$Pistol_stuff/Flash.show()
+		#$Pistol_stuff/Flash2.show()
 		ray_pistol.force_raycast_update()
 		#ray_pistol.target_position.x = randf_range(shotgunSpread,-shotgunSpread)
 		#ray_pistol.target_position.y = randf_range(shotgunSpread,-shotgunSpread)
@@ -193,7 +207,15 @@ func fire_gun():
 func _on_timer_timeout() -> void:
 	canShoot = true
 
+func resume_pressed() -> void:
+	pause_menu.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	paused = false
+
+func quit_pressed() -> void:
+	get_tree().quit()
 
 func _on_flash_timer_timeout() -> void:
-	$Pistol_stuff/Flash.hide()
-	$Pistol_stuff/Flash2.hide()
+	FlashShader.hide()
+	#$Pistol_stuff/Flash.hide()
+	#$Pistol_stuff/Flash2.hide()
