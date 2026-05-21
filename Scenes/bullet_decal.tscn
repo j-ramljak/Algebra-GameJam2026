@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://b532mankj38ha"]
+
+[ext_resource type="Script" uid="uid://by00nfs7813ka" path="res://Scenes/bullet_decal.gd" id="1_lsqg2"]
+[ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_7dpqb"]
+
+[sub_resource type="Animation" id="Animation_47ev8"]
+resource_name = "Bullet_Fade"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Decal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.03333, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_74t32"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Decal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u17lq"]
+_data = {
+&"Bullet_Fade": SubResource("Animation_47ev8"),
+&"RESET": SubResource("Animation_74t32")
+}
+
+[node name="Bullet_decal" type="Node3D" unique_id=362099283]
+script = ExtResource("1_lsqg2")
+
+[node name="Decal" type="Decal" parent="." unique_id=1939380562]
+size = Vector3(0.1, 0.1, 0.1)
+texture_albedo = ExtResource("2_7dpqb")
+
+[node name="Timer" type="Timer" parent="." unique_id=643605582]
+wait_time = 7.1
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=527469888]
+libraries/ = SubResource("AnimationLibrary_u17lq")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

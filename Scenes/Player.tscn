@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c6ij8l1e1vmvj"]
+
+[ext_resource type="Script" uid="uid://n6sidbaqpll1" path="res://Scenes/Player.gd" id="1_3hthm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_npdc1"]
+radius = 0.3
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1twwi"]
+
+[node name="Player" type="CharacterBody3D" unique_id=240721311]
+script = ExtResource("1_3hthm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=110782279]
+mesh = SubResource("CapsuleMesh_npdc1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=416296214]
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_1twwi")
+
+[node name="Head" type="Node3D" parent="." unique_id=805981900]
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1933585320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697, 0)
+cull_mask = 524287
+fov = 90.0
+
+[node name="RayContainer" type="Node3D" parent="Head/Camera3D" unique_id=970642020]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D/RayContainer" unique_id=185603101]
+enabled = false
+target_position = Vector3(0, 0, -100)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Head" unique_id=1055169006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681, 0)
+visible = false
+layers = 524289
+light_color = Color(0.681791, 0.678472, 0, 1)
+light_energy = 1.33
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Head" unique_id=1842172965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.292317, 0.52245, -0.448755)
+visible = false
+layers = 524288
+light_color = Color(0.681791, 0.678472, 0, 1)
+light_energy = 0.1
+light_cull_mask = 4294443008
+shadow_enabled = true
+omni_range = 1.0
+
+[node name="Pistol_stuff" type="Node3D" parent="." unique_id=452996778]
+
+[node name="Timer" type="Timer" parent="Pistol_stuff" unique_id=984790886]
+wait_time = 0.1
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Pistol_stuff" unique_id=2008524710]
+volume_db = -15.238
+
+[node name="Flash" type="SpotLight3D" parent="Pistol_stuff" unique_id=781294204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.682666, -0.905494)
+visible = false
+light_color = Color(0.968627, 0.784314, 0.658824, 1)
+light_energy = 7.0
+light_specular = 0.0
+shadow_enabled = true
+spot_range = 20.0
+spot_attenuation = 0.8
+spot_angle = 80.0
+
+[node name="Flash2" type="OmniLight3D" parent="Pistol_stuff" unique_id=48856238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603872, -0.808758)
+visible = false
+light_color = Color(0.967596, 0.784401, 0.658534, 1)
+light_energy = 4.0
+omni_range = 2.5
+omni_attenuation = 0.8
+
+[node name="Flash_timer" type="Timer" parent="Pistol_stuff" unique_id=1692923559]
+wait_time = 0.05
+
+[connection signal="timeout" from="Pistol_stuff/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Pistol_stuff/Flash_timer" to="." method="_on_flash_timer_timeout"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b8rmtriwpdyg5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="HostB" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 141.0
+offset_right = 60.0
+offset_bottom = 172.0
+text = "Host"
+metadata/_edit_use_anchors_ = true
+
+[node name="JoinB" type="Button" parent="."]
+offset_left = 21.0
+offset_top = 192.0
+offset_right = 59.0
+offset_bottom = 223.0
+text = "Join"
+metadata/_edit_use_anchors_ = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Scenes/Player.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="HostB" to="." method="_on_host_b_pressed"]
+[connection signal="pressed" from="JoinB" to="." method="_on_join_b_pressed"]
