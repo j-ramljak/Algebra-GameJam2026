@@ -3,24 +3,26 @@
 [ext_resource type="Script" uid="uid://n6sidbaqpll1" path="res://Scenes/Player.gd" id="1_3hthm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_npdc1"]
-radius = 0.3
+height = 3.5
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1twwi"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rpqav"]
+height = 3.5
 
 [node name="Player" type="CharacterBody3D" unique_id=240721311]
 script = ExtResource("1_3hthm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=110782279]
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_npdc1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=416296214]
-transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_1twwi")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=824104746]
+shape = SubResource("CapsuleShape3D_rpqav")
 
 [node name="Head" type="Node3D" parent="." unique_id=805981900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44869983, -0.29927838)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1933585320]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9313772, 0)
 cull_mask = 524287
 fov = 90.0
 

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://j6l2k1cm7ve"]
+
+[ext_resource type="Texture2D" uid="uid://bifcc3reftk4u" path="res://Textures/tree-2.png" id="1_yek4j"]
+
+[node name="Tree2" type="Sprite3D" unique_id=908004254]
+billboard = 1
+texture = ExtResource("1_yek4j")
