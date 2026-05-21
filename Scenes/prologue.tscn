@@ -2,10 +2,11 @@
 
 [ext_resource type="Material" uid="uid://bbykcxqisnx7d" path="res://PS1.tres" id="1_30pd2"]
 [ext_resource type="Texture2D" uid="uid://di1y6f8raa08o" path="res://Models/Prologue/prologue-building-col_buildings-atlas.png" id="2_nim4c"]
+[ext_resource type="PackedScene" uid="uid://bq8of3oh7nvnc" path="res://Scenes/pause_menu.tscn" id="2_t2qym"]
 [ext_resource type="Texture2D" uid="uid://c67spihj2nd2r" path="res://Models/Prologue/prologue-brick-col_walkway.png" id="3_rt4ci"]
 [ext_resource type="PackedScene" uid="uid://bq8of3oh7nvnc" path="res://Scenes/pause_menu.tscn" id="3_t2qym"]
 [ext_resource type="Texture2D" uid="uid://clf7pt5tspt2a" path="res://Models/Prologue/prologue-concrete-col_road.png" id="4_ghkf2"]
-[ext_resource type="Sky" uid="uid://cnc4c1dnebgim" path="res://Sky1.tres" id="4_t7dfo"]
+[ext_resource type="Sky" uid="uid://bvnalt8syad1u" path="res://new_sky.tres" id="4_t7dfo"]
 [ext_resource type="Texture2D" uid="uid://scrsjn2teuyy" path="res://Models/Prologue/prologue-grass-col_grass.png" id="5_30pd2"]
 [ext_resource type="PackedScene" uid="uid://c6ij8l1e1vmvj" path="res://Scenes/Player.tscn" id="5_rt4ci"]
 [ext_resource type="PackedScene" path="res://Scenes/tree_1.tscn" id="6_jiqjm"]
@@ -22,7 +23,7 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.0203
 volumetric_fog_emission = Color(1, 1, 1, 1)
 volumetric_fog_length = 100.0
-volumetric_fog_sky_affect = 0.711
+volumetric_fog_sky_affect = 0.701
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vup8y"]
 resource_name = "Building"
@@ -200,16 +201,9 @@ size = Vector3(200, 4, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rt4ci"]
 size = Vector3(1, 4.349243, 11.95166)
 
-[sub_resource type="Environment" id="Environment_2jbdw"]
-background_mode = 2
-sky = ExtResource("4_t7dfo")
-ambient_light_source = 2
-ambient_light_color = Color(0.601223, 0.601223, 0.60122293, 1)
-reflected_light_source = 1
+[node name="Game" type="Node3D" unique_id=740301350]
 
-[node name="Game" type="Node3D" unique_id=1966416759]
-
-[node name="SubC" type="SubViewportContainer" parent="." unique_id=2145966274]
+[node name="SubC" type="SubViewportContainer" parent="." unique_id=309955575]
 material = ExtResource("1_30pd2")
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,30 +212,21 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-metadata/_edit_use_anchors_ = true
 
-[node name="Sub" type="SubViewport" parent="SubC" unique_id=561829927]
+[node name="Sub" type="SubViewport" parent="SubC" unique_id=1072644799]
 handle_input_locally = false
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="Bullet_decals" type="Node3D" parent="SubC/Sub" unique_id=549204183]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="SubC/Sub" unique_id=584611318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4758847, 5.0617514)
-light_energy = 5.436
-spot_range = 10.808658
-spot_angle = 32.493576
-
 [node name="Player" parent="SubC/Sub" unique_id=240721311 instance=ExtResource("5_rt4ci")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 147.29051, 1.7430689, 1.0647339)
+transform = Transform3D(0.29120022, 0, 1.1641316, 0, 1.2, 0, -1.1641316, 0, 0.29120022, 147.1167, 1.7073357, 1.2094897)
+canShoot = false
 
-[node name="pause_menu" parent="SubC/Sub" unique_id=1386414847 instance=ExtResource("3_t2qym")]
-z_index = 1
+[node name="Bullet_decals" type="Node3D" parent="SubC/Sub" unique_id=1461350403]
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="SubC/Sub" unique_id=1250295157]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubC/Sub" unique_id=1250295157]
 environment = SubResource("Environment_jiqjm")
 
 [node name="Enviornment" type="Node3D" parent="SubC/Sub" unique_id=450939975]
@@ -433,8 +418,5 @@ shape = SubResource("BoxShape3D_rt4ci")
 [node name="prologue-paketomat-col" parent="SubC/Sub" unique_id=771890863 instance=ExtResource("8_nim4c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 3.123846, -9)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=243124639]
-environment = SubResource("Environment_2jbdw")
-
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=527585128]
-environment = SubResource("Environment_jiqjm")
+[node name="pause_menu" parent="SubC/Sub" unique_id=1386414847 instance=ExtResource("2_t2qym")]
+z_index = 1

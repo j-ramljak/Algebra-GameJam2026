@@ -15,6 +15,7 @@ height = 3.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1twwi"]
 radius = 0.3
+height = 3.0
 
 [sub_resource type="Gradient" id="Gradient_dewec"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -35,7 +36,7 @@ mesh = SubResource("CapsuleMesh_npdc1")
 shape = SubResource("CapsuleShape3D_1twwi")
 
 [node name="Head" type="Node3D" parent="." unique_id=805981900]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2335949, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.449, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1933585320]
 cull_mask = 524287
