@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dxd3wkb50j3ib" path="res://SFX/FootstepsConcrete1.wav" id="6_52ee3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_npdc1"]
+radius = 0.3
 height = 3.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1twwi"]
@@ -34,10 +35,9 @@ mesh = SubResource("CapsuleMesh_npdc1")
 shape = SubResource("CapsuleShape3D_1twwi")
 
 [node name="Head" type="Node3D" parent="." unique_id=805981900]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44869983, -0.29927838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2335949, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1933585320]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9313772, 0)
 cull_mask = 524287
 fov = 90.0
 
