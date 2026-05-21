@@ -28,12 +28,12 @@ data = PackedVector3Array(-5, 0.5, 2.5, 5, 0.5, 2.5, -5, -0.5, 2.5, 5, 0.5, 2.5,
 sky_top_color = Color(0.8761804, 0.41280586, 0.4743746, 1)
 sky_horizon_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Sky" id="Sky_wfdhh"]
+[sub_resource type="Sky" id="Sky_yg0us"]
 sky_material = SubResource("ProceduralSkyMaterial_7nyux")
 
 [sub_resource type="Environment" id="Environment_2v7ry"]
 background_mode = 2
-sky = SubResource("Sky_wfdhh")
+sky = SubResource("Sky_yg0us")
 ambient_light_source = 2
 ambient_light_color = Color(0.601223, 0.601223, 0.60122293, 1)
 reflected_light_source = 1
@@ -112,7 +112,7 @@ spot_range = 10.808658
 spot_angle = 32.493576
 
 [node name="Player" parent="SubC/Sub" unique_id=240721311 instance=ExtResource("1_7nyux")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0090361, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7414229, 0)
 
 [node name="pause_menu" parent="SubC/Sub" unique_id=1386414847 instance=ExtResource("2_wfdhh")]
 z_index = 1
