@@ -37,7 +37,7 @@ var CamH = Vector3(0,0.697,0)
 
 #var shotgunDamage = 1
 #var shotgunSpread = 10
-var canShoot = true
+@export var canShoot = true
 
 
 #@onready var MainMenu = get_tree().get_root().get_node("Game/CanvasLayer/Main_Menu")
