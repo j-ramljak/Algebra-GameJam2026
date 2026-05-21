@@ -31,9 +31,14 @@ var CamH = Vector3(0,0.697,0)
 @onready var ray_pistol: Node3D = $Head/Camera3D/RayContainer/RayCast3D
 @onready var bullet_decal = preload("res://Scenes/bullet_decal.tscn")
 
+@onready var FootLickTimer: Timer = $FootStepTimer
+
+
+
 #var shotgunDamage = 1
 #var shotgunSpread = 10
 var canShoot = true
+
 
 #@onready var MainMenu = get_tree().get_root().get_node("Game/CanvasLayer/Main_Menu")
 #var PClass = "none"
@@ -46,6 +51,9 @@ var paused = false
 
 func _ready():
 	FlashShader.hide();
+	
+	FootLickTimer.stop()
+	
 	#resume.pressed().connect(resume_pressed)
 	#quit.pressed().connect(quit_pressed)
 	
@@ -140,7 +148,11 @@ func _physics_process(delta: float) -> void:
 		if Input.get_vector("Left", "Right", "Forward", "Backwards") == Vector2.ZERO:
 			#camera.transform.origin = lerp(camera.transform.origin, Vector3.ZERO, 0.1)
 			camera.transform.origin = lerp(camera.transform.origin, CamH, 0.1)
+			FootLickTimer.stop()
 		elif vel > 1:
+			if FootLickTimer.is_stopped():
+				FootLickTimer.start()
+			
 			t_bob += delta * velocity.length()
 			camera.transform.origin = _headbob(t_bob)
 		
@@ -163,13 +175,13 @@ func _headbob(time) -> Vector3:
 func fire_gun():
 	#if Input.is_action_just_pressed("Fire") and PlayerSingletons.playerClass == "Gunslinger":
 	if canShoot:
-		$Pistol_stuff/AudioStreamPlayer3D.play()
+		$Pistol_stuff/Gunshot.play()
 		canShoot = false
 		$Pistol_stuff/Timer.start()
 		$Pistol_stuff/Flash_timer.start()
 		#FlashShader.show()
 		
-		
+		 
 		#$Pistol_stuff/Flash.show()
 		#$Pistol_stuff/Flash2.show()
 		ray_pistol.force_raycast_update()
@@ -193,12 +205,12 @@ func fire_gun():
 		bc.rotate(ray_pistol.get_collision_normal(),randf_range(0, 2*PI) )"""
 		
 		var b = bullet_decal.instantiate()
-		get_tree().get_root().get_node("Game/Bullet_decals").call_deferred("add_child",b,true)
+		get_tree().get_root().get_node("Game/SubC/Sub/Bullet_decals").call_deferred("add_child",b,true)
 		var bc = b.get_child(0)
 		bc.global_transform = Transform3D(Quaternion(Vector3.UP, ray_pistol.get_collision_normal()),ray_pistol.get_collision_point())
+		randomize()
 		bc.rotate(ray_pistol.get_collision_normal(),randf_range(0, 2*PI) )
-		
-		#$Pistol_stuff/AudioStreamPlayer3D.pitch_scale = randf_range(0.9,1.1)
+		$Pistol_stuff/Gunshot.pitch_scale = randf_range(0.8,1.1)
 		#$Pistol_stuff/AudioStreamPlayer3D.play()
 		
 		#$Shotgun_stuff/Flash.hide()

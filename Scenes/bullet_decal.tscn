@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b532mankj38ha"]
 
 [ext_resource type="Script" uid="uid://by00nfs7813ka" path="res://Scenes/bullet_decal.gd" id="1_lsqg2"]
-[ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_7dpqb"]
+[ext_resource type="Texture2D" uid="uid://c5p01cdopb5l4" path="res://Textures/bullet_hole.png" id="2_cawyy"]
 
 [sub_resource type="Animation" id="Animation_47ev8"]
 resource_name = "Bullet_Fade"
@@ -45,7 +45,7 @@ script = ExtResource("1_lsqg2")
 
 [node name="Decal" type="Decal" parent="." unique_id=1939380562]
 size = Vector3(0.1, 0.1, 0.1)
-texture_albedo = ExtResource("2_7dpqb")
+texture_albedo = ExtResource("2_cawyy")
 
 [node name="Timer" type="Timer" parent="." unique_id=643605582]
 wait_time = 7.1

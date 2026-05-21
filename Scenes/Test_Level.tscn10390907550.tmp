@@ -38,7 +38,7 @@ reflected_light_source = 1
 
 [node name="Game" type="Node3D" unique_id=409772535]
 
-[node name="SubC" type="SubViewportContainer" parent="." unique_id=1742131151]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1742131151]
 material = ExtResource("3_2v7ry")
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,54 +48,53 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="Sub" type="SubViewport" parent="SubC" unique_id=179869524]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=179869524]
 handle_input_locally = false
-audio_listener_enable_2d = true
-audio_listener_enable_3d = true
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SubC/Sub" unique_id=1663044682]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport" unique_id=1663044682]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubC/Sub/StaticBody3D" unique_id=1635960359]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=1635960359]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.565044, 0, 0)
 mesh = SubResource("PlaneMesh_wfdhh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubC/Sub/StaticBody3D" unique_id=2113447964]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D" unique_id=2113447964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.565044, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_wfdhh")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="SubC/Sub" unique_id=206945290]
+[node name="StaticBody3D2" type="StaticBody3D" parent="SubViewportContainer/SubViewport" unique_id=206945290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0412586, 4.430656, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubC/Sub/StaticBody3D2" unique_id=1514507803]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/StaticBody3D2" unique_id=1514507803]
 mesh = SubResource("BoxMesh_8p2tx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubC/Sub/StaticBody3D2" unique_id=1283701686]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D2" unique_id=1283701686]
 shape = SubResource("ConcavePolygonShape3D_yg0us")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="SubC/Sub" unique_id=189757534]
+[node name="StaticBody3D3" type="StaticBody3D" parent="SubViewportContainer/SubViewport" unique_id=189757534]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.0412586, 2.5234776, -2.3924217)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubC/Sub/StaticBody3D3" unique_id=380739141]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/StaticBody3D3" unique_id=380739141]
 mesh = SubResource("BoxMesh_3d0ua")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubC/Sub/StaticBody3D3" unique_id=1153587963]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D3" unique_id=1153587963]
 shape = SubResource("ConcavePolygonShape3D_8p2tx")
 
-[node name="Bullet_decals" type="Node3D" parent="SubC/Sub" unique_id=766028475]
+[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=240721311 instance=ExtResource("1_7nyux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0090361, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SubC/Sub" unique_id=967486920]
+[node name="Bullet_decals" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=766028475]
+unique_name_in_owner = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=967486920]
 environment = SubResource("Environment_2v7ry")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubC/Sub" unique_id=1969589776]
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport" unique_id=1969589776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4758847, 5.0617514)
 light_energy = 5.436
 spot_range = 10.808658
 spot_angle = 32.493576
 
-[node name="Player" parent="SubC/Sub" unique_id=240721311 instance=ExtResource("1_7nyux")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0090361, 0)
-
-[node name="pause_menu" parent="SubC/Sub" unique_id=1386414847 instance=ExtResource("2_wfdhh")]
+[node name="pause_menu" parent="SubViewportContainer/SubViewport" unique_id=1386414847 instance=ExtResource("2_wfdhh")]
 z_index = 1

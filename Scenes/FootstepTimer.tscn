@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dig4ncb07k6hj"]
+
+[ext_resource type="Script" uid="uid://c78e2bdqj687y" path="res://Scenes/footstep_timer.gd" id="1_b7353"]
+[ext_resource type="AudioStream" uid="uid://dxd3wkb50j3ib" path="res://SFX/FootstepsConcrete1.wav" id="2_ryprd"]
+
+[node name="FootstepTimer" type="Timer" unique_id=1503655181]
+wait_time = 0.5
+script = ExtResource("1_b7353")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=287057747]
+stream = ExtResource("2_ryprd")
+max_polyphony = 2
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
