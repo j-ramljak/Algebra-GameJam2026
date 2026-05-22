@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://chwwggxw26pmq" path="res://Scenes/tree_1.tscn" id="6_jiqjm"]
 [ext_resource type="PackedScene" uid="uid://j6l2k1cm7ve" path="res://Scenes/tree_2.tscn" id="7_nim4c"]
 [ext_resource type="PackedScene" uid="uid://c4e8i14jamj8i" path="res://Models/Prologue/prologue-paketomat-col.glb" id="8_nim4c"]
+[ext_resource type="PackedScene" uid="uid://bq8of3oh7nvnc" path="res://Scenes/pause_menu.tscn" id="9_rt4ci"]
 
 [sub_resource type="Environment" id="Environment_jiqjm"]
 background_mode = 1
@@ -392,3 +393,5 @@ shape = SubResource("BoxShape3D_rt4ci")
 
 [node name="prologue-paketomat-col" parent="." unique_id=771890863 instance=ExtResource("8_nim4c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 3.123846, -9)
+
+[node name="pause_menu" parent="." unique_id=1386414847 instance=ExtResource("9_rt4ci")]
