@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 
 Global="*uid://clwbegx3u3oii"
 DialogueManager="*uid://c3rodes2l3gxb"
-Global="*uid://clwbegx3u3oii"
 
 [dialogue_manager]
 

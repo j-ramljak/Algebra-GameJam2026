@@ -9,6 +9,7 @@ extends Control
 
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Global.last_level_pased == -1:
 		level_1.been_pressed = true
 		level_2.been_pressed = true
