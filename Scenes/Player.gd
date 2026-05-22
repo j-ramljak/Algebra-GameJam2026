@@ -43,6 +43,7 @@ var CamH = Vector3(0,0.697,0)
 #var shotgunDamage = 1
 #var shotgunSpread = 10
 @export var canShoot = true
+@export var canMove = true
 
 
 #@onready var MainMenu = get_tree().get_root().get_node("Game/CanvasLayer/Main_Menu")
@@ -149,15 +150,15 @@ func _physics_process(delta: float) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		
 		
-		
-		var input_dir := Input.get_vector("Left", "Right", "Forward", "Backwards")
-		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if direction:
-			velocity.x = direction.x * SPEED
-			velocity.z = direction.z * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
+		if canMove:
+			var input_dir := Input.get_vector("Left", "Right", "Forward", "Backwards")
+			var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+			if direction:
+				velocity.x = direction.x * SPEED
+				velocity.z = direction.z * SPEED
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 		var vel =get_real_velocity().length()
 		

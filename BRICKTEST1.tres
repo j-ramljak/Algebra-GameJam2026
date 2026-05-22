@@ -1,0 +1,33 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://i5dcfnv1jwge"]
+
+[ext_resource type="Texture2D" uid="uid://c67spihj2nd2r" path="res://Models/Prologue/prologue-brick-col_walkway.png" id="1_j51kh"]
+
+[sub_resource type="Gradient" id="Gradient_yj4lt"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h01s4"]
+noise_type = 0
+frequency = 0.0089
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2gjil"]
+width = 1514
+height = 191
+noise = SubResource("FastNoiseLite_h01s4")
+color_ramp = SubResource("Gradient_yj4lt")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ybpw"]
+render_priority = 1
+transparency = 1
+cull_mode = 1
+albedo_color = Color(1, 1, 1, 0.41568628)
+albedo_texture = SubResource("NoiseTexture2D_2gjil")
+uv1_triplanar = true
+
+[resource]
+resource_name = "Brick"
+next_pass = SubResource("StandardMaterial3D_1ybpw")
+transparency = 1
+cull_mode = 1
+albedo_texture = ExtResource("1_j51kh")
+texture_filter = 2
