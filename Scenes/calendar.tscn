@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://dwvdbbtexp42g"]
+
+[ext_resource type="Texture2D" uid="uid://b2pds2uehe3nh" path="res://Textures/calendar.png" id="1_32ho3"]
+[ext_resource type="Texture2D" uid="uid://6xjjvuf1gdgw" path="res://Textures/calendar_grey.png" id="2_j3b6r"]
+[ext_resource type="Texture2D" uid="uid://c41kot64kha6k" path="res://Textures/calendar_crosst.png" id="3_1ig1g"]
+[ext_resource type="Script" uid="uid://cun3wect6nxqo" path="res://Scenes/calendar.gd" id="3_j3b6r"]
+[ext_resource type="Texture2D" uid="uid://bpxyxn87e8cml" path="res://Textures/calendar-ot.png" id="4_1ig1g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgbht"]
+atlas = ExtResource("4_1ig1g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3gwj"]
+atlas = ExtResource("4_1ig1g")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmhc3"]
+atlas = ExtResource("4_1ig1g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prfmt"]
+atlas = ExtResource("4_1ig1g")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m2u5"]
+atlas = ExtResource("4_1ig1g")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqs6f"]
+atlas = ExtResource("4_1ig1g")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cscaf"]
+atlas = ExtResource("4_1ig1g")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uewmk"]
+atlas = ExtResource("3_1ig1g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18uew"]
+atlas = ExtResource("3_1ig1g")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw23p"]
+atlas = ExtResource("3_1ig1g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in23p"]
+atlas = ExtResource("3_1ig1g")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e1h4"]
+atlas = ExtResource("3_1ig1g")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1ha0"]
+atlas = ExtResource("3_1ig1g")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iihtk"]
+atlas = ExtResource("3_1ig1g")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ytyk"]
+atlas = ExtResource("3_1ig1g")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kych6"]
+atlas = ExtResource("3_1ig1g")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rgbht"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgbht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3gwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmhc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prfmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m2u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqs6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cscaf")
+}],
+"loop": false,
+"name": &"o",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uewmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uewmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uewmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18uew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw23p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in23p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e1h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1ha0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iihtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ytyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kych6")
+}],
+"loop": false,
+"name": &"x",
+"speed": 15.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_32ho3"]
+line_spacing = 0.0
+font_size = 32
+font_color = Color(0.35049206, 0.35049212, 0.3504921, 1)
+
+[node name="Calendar button" type="TextureButton" unique_id=1661142802]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_32ho3")
+texture_pressed = ExtResource("2_j3b6r")
+texture_disabled = ExtResource("1_32ho3")
+script = ExtResource("3_j3b6r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1240987869]
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_rgbht")
+animation = &"o"
+
+[node name="Label" type="Label" parent="." unique_id=82412973]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 8.0
+offset_right = 63.0
+offset_bottom = 61.0
+text = "1"
+label_settings = SubResource("LabelSettings_32ho3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
