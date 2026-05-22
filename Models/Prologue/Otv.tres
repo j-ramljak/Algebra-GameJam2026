@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cmqiypcmc2ye8"]
+
+[ext_resource type="Texture2D" uid="uid://bjcxwu0fp8bsv" path="res://Models/Prologue/PakOpen.png" id="1_bq14g"]
+
+[resource]
+resource_name = "Paketomat"
+cull_mode = 2
+albedo_texture = ExtResource("1_bq14g")
+texture_filter = 2

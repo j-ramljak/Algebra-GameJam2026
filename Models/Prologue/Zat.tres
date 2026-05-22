@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b5wrg6bp1briw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cu7k3"]
+load_path = "res://.godot/imported/prologue-paketomat-col_paketomat.png-4296be1e49cf6ade104f0592bc180687.s3tc.ctex"
+
+[resource]
+resource_name = "Paketomat"
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_cu7k3")
+texture_filter = 2
