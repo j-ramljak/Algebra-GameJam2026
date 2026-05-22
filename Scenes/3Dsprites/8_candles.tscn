@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bwy4gbnvurlpa"]
+
+[ext_resource type="PackedScene" uid="uid://b5mymff62o3ii" path="res://Scenes/3Dsprites/candles.tscn" id="1_l710y"]
+
+[node name="8Candles" type="Node3D" unique_id=1675638654]
+
+[node name="Candles" parent="." unique_id=476426650 instance=ExtResource("1_l710y")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -1.7879221, 0, -1.651832)
+
+[node name="Candles2" parent="." unique_id=563447594 instance=ExtResource("1_l710y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5600648, 0, 0.14969158)
+
+[node name="Candles3" parent="." unique_id=465583402 instance=ExtResource("1_l710y")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -1.7746174, 0, 2.0424485)
+
+[node name="Candles4" parent="." unique_id=164010096 instance=ExtResource("1_l710y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8121881)
+
+[node name="Candles5" parent="." unique_id=871901936 instance=ExtResource("1_l710y")]
+transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 1.8462543, 0, 2.0471358)
+
+[node name="Candles6" parent="." unique_id=974728725 instance=ExtResource("1_l710y")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 1.670413, 0, -1.576185)
+
+[node name="Candles7" parent="." unique_id=482327655 instance=ExtResource("1_l710y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.419694)
+
+[node name="Candles8" parent="." unique_id=1164072978 instance=ExtResource("1_l710y")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.440551, 0, 0.15450501)

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://0l7g84621bsr"]
+
+[ext_resource type="Texture2D" uid="uid://b1u7o0wdgmucj" path="res://Textures/altar.png" id="1_na8em"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_na8em"]
+size = Vector3(4.267456, 1.8123779, 1)
+
+[node name="Altar" type="StaticBody3D" unique_id=1619630166]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=435522079]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.1538001, 0)
+texture_filter = 0
+texture = ExtResource("1_na8em")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=143647278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07085216, 1.4907026, -0.007080078)
+shape = SubResource("BoxShape3D_na8em")

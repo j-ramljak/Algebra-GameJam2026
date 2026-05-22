@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b5mymff62o3ii"]
+
+[ext_resource type="Texture2D" uid="uid://cwiixfkxj07ms" path="res://Textures/candles.png" id="1_wpkod"]
+
+[node name="Candles" type="Node3D" unique_id=476426650]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=435522079]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.2890588, 0)
+texture_filter = 0
+texture = ExtResource("1_wpkod")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1831232003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5448915, 0.21277028, 0)
+light_color = Color(0.99999994, 0.636212, 0.2720907, 1)
+light_energy = 0.727
+omni_range = 3.5658774
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=59259903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21277028, 0)
+light_color = Color(1, 1, 0.5372549, 1)
+light_energy = 0.5
+omni_range = 3.5658774
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=793858751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560444, 0.39757735, 0)
+light_color = Color(0.80231404, 0.79138297, 0, 1)
+light_energy = 0.455
+omni_range = 3.5658774
