@@ -34,12 +34,12 @@ func _physics_process(delta: float) -> void:
 		attacking = true
 	else: attacking = false
 	
-	if agrro:
-		$Sprite3D.modulate = Color(0.853, 0.0, 0.507, 1.0)
-	elif chasing:
-		$Sprite3D.modulate = Color(0.0, 0.82, 0.35, 1.0)
-	else:
-		$Sprite3D.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	#if agrro:
+		#$Sprite3D.modulate = Color(0.853, 0.0, 0.507, 1.0)
+	#elif chasing:
+		#$Sprite3D.modulate = Color(0.0, 0.82, 0.35, 1.0)
+	#else:
+		#$Sprite3D.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
 	
 	$RayCast3D.force_raycast_update()
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	print("chasing: ", chasing, "; agrro: ", agrro, "; attacking: ",attacking, "; CanShoot: ", CanShoot)
+	#print("chasing: ", chasing, "; agrro: ", agrro, "; attacking: ",attacking, "; CanShoot: ", CanShoot)
 	
 	move_and_slide()
 
@@ -97,6 +97,10 @@ func _on_agrro_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		agrro = true
 		chasing = false
+		var rand = randi_range(0,8)
+		if rand == 1:
+			$AudioStreamPlayer3D.pitch_scale=randf_range(0.8,1.2)
+			$AudioStreamPlayer3D.play()
 		#attacking = true
 
 

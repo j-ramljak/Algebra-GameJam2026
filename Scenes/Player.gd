@@ -5,7 +5,7 @@ func _enter_tree() -> void:
 	#set_multiplayer_authority(name.to_int())
 	#print(get_multiplayer_authority())
 
-const SPEED = 5.0
+var SPEED = 5.0
 const SENSITIVITY = 0.005
 #const JUMP_VELOCITY = 4.5
 const BOBF = 2.5
@@ -142,7 +142,13 @@ func _physics_process(delta: float) -> void:
 			pause_menu.show()
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		paused = !paused
-		
+	
+	if Input.is_action_pressed("Run"):
+		SPEED=10.0
+		FootLickTimer.wait_time = 0.45
+	else:
+		SPEED=5.0
+		FootLickTimer.wait_time = 0.9
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -229,6 +235,10 @@ func fire_gun():
 		randomize()
 		bc.rotate(ray_pistol.get_collision_normal(),randf_range(0, 2*PI) )
 		$Pistol_stuff/Gunshot.pitch_scale = randf_range(0.9,1.1)
+		var col = $Head/Camera3D/RayContainer/RayCast3D.get_collider()
+		if $Head/Camera3D/RayContainer/RayCast3D.get_collider() != null:
+			if col.is_in_group("Enemy"):
+				col.lose_hp()
 		#$Pistol_stuff/AudioStreamPlayer3D.play()
 		
 		#$Shotgun_stuff/Flash.hide()

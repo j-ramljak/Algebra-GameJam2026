@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://n1mijlccuwxg" path="res://Scenes/enemyRanged.tscn.gd" id="1_sf8ly"]
 [ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_kk8la"]
+[ext_resource type="AudioStream" uid="uid://c1i1jou80fdbi" path="res://SFX/ThereHeIs2.wav" id="3_kk8la"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7k104"]
 height = 2.5
@@ -74,6 +75,9 @@ texture = ExtResource("2_kk8la")
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1489245101]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.805, 0)
 target_position = Vector3(0, 0, -20.425)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=897987512]
+stream = ExtResource("3_kk8la")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="agrro" to="." method="_on_agrro_area_entered"]
