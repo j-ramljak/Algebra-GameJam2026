@@ -20,6 +20,10 @@
 [ext_resource type="Script" uid="uid://bwbu4kb1srriy" path="res://Scenes/animation_player.gd" id="18_h52fu"]
 [ext_resource type="Texture2D" uid="uid://cwd8kfsdio815" path="res://Textures/tunger.png" id="19_gflsd"]
 [ext_resource type="AudioStream" uid="uid://blfqyicahjtqd" path="res://SFX/BGprologue.wav" id="20_odspg"]
+[ext_resource type="Script" uid="uid://c6lnvnvv462ul" path="res://Scenes/objective.gd" id="20_y7584"]
+[ext_resource type="FontFile" uid="uid://baye4ng0ne0ls" path="res://Fonts/SalemwitchtrialRegular-OGeg4.otf" id="21_emj0k"]
+[ext_resource type="Texture2D" uid="uid://bbcwka0ahfpo3" path="res://Textures/complete.png" id="23_bdkh3"]
+[ext_resource type="AudioStream" uid="uid://iektclks62na" path="res://SFX/shing.wav" id="24_oafjd"]
 
 [sub_resource type="Environment" id="Environment_jiqjm"]
 background_mode = 2
@@ -354,6 +358,178 @@ _data = {
 &"RESET": SubResource("Animation_odspg")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bdkh3"]
+blend_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_oafjd"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cttix"]
+gradient = SubResource("Gradient_oafjd")
+
+[sub_resource type="Animation" id="Animation_megsn"]
+resource_name = "Objective"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 2, 1, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-960, 0), Vector2(-960, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup/Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 2, 1, 2),
+"update": 0,
+"values": [Vector2(960, 0), Vector2(1920, 0), Vector2(1920, 0), Vector2(960, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yoq75"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup/Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_odioe"]
+_data = {
+&"Objective": SubResource("Animation_megsn"),
+&"RESET": SubResource("Animation_yoq75")
+}
+
+[sub_resource type="Animation" id="Animation_bdkh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cttix"]
+resource_name = "complete"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.3, 1.5),
+"transitions": PackedFloat32Array(1, 0.5, 2, 2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("24_oafjd")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gradient:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666667, 0.3, 0.99999994),
+"transitions": PackedFloat32Array(2, 0.5, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3896507, 2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttpv6"]
+_data = {
+&"RESET": SubResource("Animation_bdkh3"),
+&"complete": SubResource("Animation_cttix")
+}
+
+[sub_resource type="Gradient" id="Gradient_cttix"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.38554215, 0.92771083)
+colors = PackedColorArray(0.9500608, 0.65268105, 0.17079669, 0.8156863, 0.9843137, 0.7058824, 0.29803923, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_odioe"]
+gradient = SubResource("Gradient_cttix")
+width = 400
+height = 400
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
+
 [node name="Game" type="Node3D" unique_id=740301350]
 
 [node name="SubC" type="SubViewportContainer" parent="." unique_id=309955575]
@@ -575,7 +751,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 3.0561457, -9)
 z_index = 5
 
 [node name="Actionable" parent="SubC/Sub" unique_id=518993178 groups=["Trigger"] instance=ExtResource("12_t2qym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.09367, 0, 1.8783791)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.919, 0, 1.8783791)
 dialogue_res = ExtResource("13_t7dfo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubC/Sub/Actionable" unique_id=409232410]
@@ -627,9 +803,108 @@ attenuation_model = 3
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="SubC/Sub/Cutscene" unique_id=122947947]
 attenuation_model = 3
 
+[node name="Objective" type="Node3D" parent="SubC/Sub" unique_id=762522440]
+script = ExtResource("20_y7584")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="SubC/Sub/Objective" unique_id=1895878537]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubC/Sub/Objective/CanvasGroup" unique_id=1894971254]
+custom_minimum_size = Vector2(1920, 0)
+offset_right = 1920.0
+offset_bottom = 182.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Container" type="Container" parent="SubC/Sub/Objective/CanvasGroup/VBoxContainer" unique_id=1070134661]
+custom_minimum_size = Vector2(0, 23.325)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubC/Sub/Objective/CanvasGroup/VBoxContainer" unique_id=591570932]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85490197, 0.6, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("21_emj0k")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "OBJECTIVE"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container2" type="Container" parent="SubC/Sub/Objective/CanvasGroup/VBoxContainer" unique_id=1095574075]
+custom_minimum_size = Vector2(0, 23.325)
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="SubC/Sub/Objective/CanvasGroup/VBoxContainer" unique_id=1250251455]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85605127, 0.5993911, 0.6291228, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("21_emj0k")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[shake rate=6.0 level=5 connected=1]RETRIEVE THE RELIC FROM THE POST BOX[/shake]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SubC/Sub/Objective/CanvasGroup" unique_id=832310953]
+material = SubResource("CanvasItemMaterial_bdkh3")
+scale = Vector2(15, 3.375)
+texture = SubResource("GradientTexture2D_cttix")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="SubC/Sub/Objective/CanvasGroup" unique_id=1681374882]
+material = SubResource("CanvasItemMaterial_bdkh3")
+position = Vector2(960, 0)
+scale = Vector2(15, 3.375)
+texture = SubResource("GradientTexture2D_cttix")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubC/Sub/Objective" unique_id=56999122]
+libraries/ = SubResource("AnimationLibrary_odioe")
+
+[node name="Timer" type="Timer" parent="SubC/Sub/Objective" unique_id=1900353248]
+one_shot = true
+
 [node name="BG" type="AudioStreamPlayer3D" parent="." unique_id=1141617128]
 stream = ExtResource("20_odspg")
 attenuation_model = 3
 autoplay = true
 
+[node name="Complete" type="Node3D" parent="." unique_id=579952209]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Complete" unique_id=1743711074]
+libraries/ = SubResource("AnimationLibrary_ttpv6")
+speed_scale = 0.9
+
+[node name="Gradient" type="Sprite2D" parent="Complete" unique_id=1732495463]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(4.235, 1)
+texture = SubResource("GradientTexture2D_odioe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Complete" unique_id=1517246537]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("23_bdkh3")
+offset = Vector2(960, 540)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Complete" unique_id=519467083]
+attenuation_model = 3
+volume_db = -1.0
+pitch_scale = 0.8
+
+[node name="ColorRect" type="ColorRect" parent="Complete" unique_id=1742232319]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="interacted" from="SubC/Sub/Cutscene/Lever" to="SubC/Sub/Cutscene/AnimationPlayer" method="_on_lever_interacted"]
+[connection signal="animation_finished" from="SubC/Sub/Cutscene/AnimationPlayer" to="SubC/Sub/Objective" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="SubC/Sub/Objective/Timer" to="SubC/Sub/Objective" method="_on_timer_timeout"]
