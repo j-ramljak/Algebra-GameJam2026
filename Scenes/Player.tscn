@@ -25,7 +25,21 @@ gradient = SubResource("Gradient_dewec")
 width = 1920
 height = 1080
 
-[node name="Player" type="CharacterBody3D" unique_id=240721311]
+[sub_resource type="Gradient" id="Gradient_bhhdu"]
+offsets = PackedFloat32Array(0.5301205, 1)
+colors = PackedColorArray(0.972549, 0, 0.11764706, 0, 0.972549, 0, 0.11764706, 0.32941177)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_megsn"]
+gradient = SubResource("Gradient_bhhdu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bhhdu"]
+
+[node name="Player" type="CharacterBody3D" unique_id=240721311 groups=["Player"]]
 script = ExtResource("1_3hthm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=110782279]
@@ -176,6 +190,11 @@ modulate = Color(0.86089915, 0.38438633, 0.3931347, 1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_gntrk")
 
+[node name="Hurt" type="Sprite2D" parent="CanvasLayer" unique_id=230780539]
+scale = Vector2(30, 16.875)
+texture = SubResource("GradientTexture2D_megsn")
+centered = false
+
 [node name="FootStepTimer" type="Timer" parent="." unique_id=129675289]
 wait_time = 0.5
 script = ExtResource("5_nn08x")
@@ -189,6 +208,13 @@ panning_strength = 0.0
 [node name="TextureRect" type="TextureRect" parent="." unique_id=469470709]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ActionableFinder" type="Area3D" parent="." unique_id=807052187 groups=["Player", "Trigger"]]
+collision_layer = 18
+collision_mask = 18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ActionableFinder" unique_id=523494582]
+shape = SubResource("CylinderShape3D_bhhdu")
 
 [connection signal="timeout" from="Pistol_stuff/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Pistol_stuff/Flash_timer" to="." method="_on_flash_timer_timeout"]

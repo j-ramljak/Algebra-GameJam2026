@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cxcmsmjjpjyuc"]
+
+[ext_resource type="Script" uid="uid://kgt8awdwfcjd" path="res://enemy.gd" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_4gyqm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7k104"]
+height = 2.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4gyqm"]
+height = 2.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gyqm"]
+size = Vector3(1, 2, 0.51)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=439418596]
+script = ExtResource("1_7k104")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=646395076]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=612493021]
+mesh = SubResource("CapsuleMesh_7k104")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=507413084]
+shape = SubResource("CapsuleShape3D_4gyqm")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=105538703]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 1.1924655, -0.46582514)
+texture = ExtResource("2_4gyqm")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=763508804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5365895)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=215192227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19635487, -1.1006787)
+shape = SubResource("BoxShape3D_4gyqm")
+
+[node name="Timer" type="Timer" parent="." unique_id=148765915]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

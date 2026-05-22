@@ -425,8 +425,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 3.123846, -9)
 [node name="pause_menu" parent="SubC/Sub" unique_id=1386414847 instance=ExtResource("3_t2qym")]
 z_index = 5
 
-[node name="Actionable" parent="SubC/Sub" unique_id=518993178 groups=["Trigger"] instance=ExtResource("12_t2qym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.4292, 0, 1.8783791)
+[node name="Actionable" parent="SubC/Sub" unique_id=518993178 instance=ExtResource("12_t2qym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.93298, 0, 1.8783791)
 dialogue_res = ExtResource("13_t7dfo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubC/Sub/Actionable" unique_id=409232410]

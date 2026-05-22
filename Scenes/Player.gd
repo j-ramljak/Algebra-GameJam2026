@@ -13,12 +13,17 @@ const BOBA = 0.08
 var t_bob = 0.0
 var CamH = Vector3(0,0.697,0)
 
+
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var body = $"."
-@onready var sub_cam: Camera3D = %SubCam
+#@onready var sub_cam: Camera3D = %SubCam
 
 @onready var FlashShader: ColorRect = $Head/Camera3D/CanvasLayer/ColorRect
+
+@onready var actionable_finder: Area3D = $ActionableFinder
+
+@onready var hurt: Sprite2D = $CanvasLayer/Hurt
 
 
 #@onready var MainMenu = preload("res://Scripts/main_menu.gd")
@@ -53,6 +58,8 @@ func _ready():
 	FlashShader.hide();
 	
 	FootLickTimer.stop()
+	
+	$CanvasLayer/Hurt.modulate = Color(255.014, 255.014, 255.014, 0.0)
 	
 	#resume.pressed().connect(resume_pressed)
 	#quit.pressed().connect(quit_pressed)
@@ -91,7 +98,15 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-		
+	var actionables = actionable_finder.get_overlapping_areas()
+	if actionables.size() > 0:
+		var i=0
+		for thing in actionables:
+			if thing.is_in_group("Trigger"):
+				actionables[i].action()
+			i=i+1
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -132,6 +147,8 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	#if not paused:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		
+		
 		
 		var input_dir := Input.get_vector("Left", "Right", "Forward", "Backwards")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -233,3 +250,10 @@ func _on_flash_timer_timeout() -> void:
 	FlashShader.hide()
 	#$Pistol_stuff/Flash.hide()
 	#$Pistol_stuff/Flash2.hide()
+
+
+func hit(dir) -> void:
+	hurt.modulate = Color(255.014, 255.014, 255.014, 1.0)
+	var tween = get_tree().create_tween()
+	tween.tween_property($CanvasLayer/Hurt,"modulate",Color(255, 255, 255, 0.0),0.5)
+	velocity += Vector3(dir.x*10.0,0.5,dir.z*10.0)

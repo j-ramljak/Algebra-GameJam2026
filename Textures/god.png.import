@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5ob4e4gyoosf"
-path.s3tc="res://.godot/imported/Borna.jpg-c264c110a71b2ac5ce35f2d3e1761845.s3tc.ctex"
+uid="uid://b0eixlssnm1f3"
+path.s3tc="res://.godot/imported/god.png-190aaf4e27374acf880634eeb0001f73.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Borna.jpg"
-dest_files=["res://.godot/imported/Borna.jpg-c264c110a71b2ac5ce35f2d3e1761845.s3tc.ctex"]
+source_file="res://Textures/god.png"
+dest_files=["res://.godot/imported/god.png-190aaf4e27374acf880634eeb0001f73.s3tc.ctex"]
 
 [params]
 
