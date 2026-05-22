@@ -1,4 +1,4 @@
 extends Node
 
 
-var last_level_pased = 1
+var last_level_pased = -1
