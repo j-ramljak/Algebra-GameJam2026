@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b6oejafatkeht"]
+
+[ext_resource type="Texture2D" uid="uid://c3as2aeto70ly" path="res://Textures/klupa-front.png" id="1_i26e3"]
+[ext_resource type="Texture2D" uid="uid://dxcwm2vcpsabb" path="res://Textures/Klupa-back.png" id="2_xqg02"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a4nge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h47c3"]
+size = Vector3(2.0138168, 1, 1)
+
+[node name="Klupa" type="StaticBody3D" unique_id=1728730399]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_a4nge")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1180116627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.61896753, 0)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("1_i26e3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1331161491]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.609984, 0)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_xqg02")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=393574524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013057733, 0.539658, 0)
+shape = SubResource("BoxShape3D_h47c3")

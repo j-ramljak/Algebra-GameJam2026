@@ -3,6 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://eoglxjpjsjb0" path="res://map_tiles.tres" id="1_76ybr"]
 [ext_resource type="PackedScene" uid="uid://c6ij8l1e1vmvj" path="res://Scenes/Player.tscn" id="2_s8nj6"]
 [ext_resource type="PackedScene" uid="uid://bq8of3oh7nvnc" path="res://Scenes/pause_menu.tscn" id="3_vwg62"]
+[ext_resource type="PackedScene" uid="uid://ds8ota21ji0m3" path="res://Scenes/3Dsprites/armour_stand.tscn" id="4_s8nj6"]
 
 [node name="Level 3" type="Node3D" unique_id=368131766]
 
@@ -15,6 +16,72 @@ data = {
 metadata/_edit_group_ = true
 
 [node name="Player" parent="." unique_id=240721311 instance=ExtResource("2_s8nj6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1491187, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.1491187, 3.8668523)
 
 [node name="pause_menu" parent="." unique_id=1386414847 instance=ExtResource("3_vwg62")]
+
+[node name="Armour stand" parent="." unique_id=1728730399 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -6.688209, 0.12135053, -6.5711365)
+
+[node name="Armour stand2" parent="." unique_id=148049278 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -4.786431, 0.12135005, -6.5877314)
+
+[node name="Armour stand3" parent="." unique_id=1665537575 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -2.9236956, 0.12135005, -6.778181)
+
+[node name="Armour stand4" parent="." unique_id=746066674 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -5.481361, 0.12135053, -5.5821133)
+
+[node name="Armour stand5" parent="." unique_id=1654320159 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -3.741731, 0.12135029, -5.9504395)
+
+[node name="Armour stand6" parent="." unique_id=376744068 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -6.9594297, 0.12135029, -5.456709)
+
+[node name="Armour stand7" parent="." unique_id=142533252 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -4.243834, 0.12135005, -4.6159286)
+
+[node name="Armour stand8" parent="." unique_id=1782213462 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -2.809879, 0.12135005, -4.8914022)
+
+[node name="Armour stand9" parent="." unique_id=1782510500 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 6.764068, 0.18048191, -6.536212)
+
+[node name="Armour stand10" parent="." unique_id=842038901 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 4.8465495, 0.12135029, -6.6375847)
+
+[node name="Armour stand11" parent="." unique_id=1583384093 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 2.9786403, 0.12135029, -6.6898966)
+
+[node name="Armour stand12" parent="." unique_id=288270431 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 3.584323, 0.12135029, -5.0970697)
+
+[node name="Armour stand13" parent="." unique_id=133630205 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 5.6951656, 0.12135029, -5.218071)
+
+[node name="Armour stand14" parent="." unique_id=928158494 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 2.7023363, 0.12135005, -3.4307895)
+
+[node name="Armour stand15" parent="." unique_id=2136115378 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 4.363087, 0.12135005, -3.677703)
+
+[node name="Armour stand16" parent="." unique_id=1241250366 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 6.7466817, 0.12135029, -4.3544245)
+
+[node name="Armour stand17" parent="." unique_id=1302774839 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 5.0874095, 0.12135005, -2.977862)
+
+[node name="Armour stand18" parent="." unique_id=1565224937 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -5.7395816, 0.12135029, -4.224053)
+
+[node name="Armour stand19" parent="." unique_id=181097059 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -6.471018, 0.12135029, -3.5648084)
+
+[node name="Armour stand20" parent="." unique_id=1881804081 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -4.3102674, 0.12135029, -3.5471883)
+
+[node name="Armour stand21" parent="." unique_id=1324004492 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -3.085625, 0.12135029, -3.6311507)
+
+[node name="Armour stand22" parent="." unique_id=138063770 instance=ExtResource("4_s8nj6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 3.5618162, 0.12135005, -2.7846365)
