@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	print("chasing: ", chasing, "; agrro: ", agrro, "; attacking: ",attacking, "; CanShoot: ", CanShoot)
+	#print("chasing: ", chasing, "; agrro: ", agrro, "; attacking: ",attacking, "; CanShoot: ", CanShoot)
 	
 	move_and_slide()
 
