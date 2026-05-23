@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://n1mijlccuwxg" path="res://Scenes/enemyRanged.tscn.gd" id="1_sf8ly"]
 [ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_kk8la"]
 [ext_resource type="AudioStream" uid="uid://c1i1jou80fdbi" path="res://SFX/ThereHeIs2.wav" id="3_kk8la"]
+[ext_resource type="Texture2D" uid="uid://db68kueyul16t" path="res://Textures/character-gunV2.png" id="4_bo66h"]
 [ext_resource type="AudioStream" uid="uid://b68my8vrq1tpx" path="res://SFX/DeathSFX.wav" id="4_i4llj"]
 [ext_resource type="AudioStream" uid="uid://txv72cm8wmsx" path="res://SFX/Gunshot.wav" id="5_easwj"]
 
@@ -182,27 +183,35 @@ height = 2.5
 albedo_color = Color(0.45604372, 0.56687784, 0.76649654, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvk31"]
+atlas = ExtResource("4_bo66h")
 region = Rect2(0, 768, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_easwj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn8qf"]
+atlas = ExtResource("4_bo66h")
 region = Rect2(256, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x2e2k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo66h"]
+atlas = ExtResource("4_bo66h")
 region = Rect2(256, 768, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnqa2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2e2k"]
+atlas = ExtResource("4_bo66h")
 region = Rect2(512, 768, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i4llj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnqa2"]
+atlas = ExtResource("4_bo66h")
 region = Rect2(0, 768, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bo66h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw084"]
+atlas = ExtResource("4_bo66h")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tw084"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5guf0"]
+atlas = ExtResource("4_bo66h")
 region = Rect2(256, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5guf0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkiki"]
+atlas = ExtResource("4_bo66h")
 region = Rect2(512, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x2e2k"]
@@ -217,7 +226,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_easwj")
+"texture": SubResource("AtlasTexture_xn8qf")
 }],
 "loop": true,
 "name": &"Idle",
@@ -225,13 +234,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_x2e2k")
+"texture": SubResource("AtlasTexture_bo66h")
 }, {
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_qnqa2")
+"texture": SubResource("AtlasTexture_x2e2k")
 }, {
 "duration": 10.0,
-"texture": SubResource("AtlasTexture_i4llj")
+"texture": SubResource("AtlasTexture_qnqa2")
 }],
 "loop": true,
 "name": &"Shoot",
@@ -239,16 +248,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bo66h")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_tw084")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5guf0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tw084")
+"texture": SubResource("AtlasTexture_pkiki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5guf0")
 }],
 "loop": true,
 "name": &"Walk",
@@ -345,14 +354,16 @@ texture = ExtResource("2_kk8la")
 transform = Transform3D(1.185, 0, 0, 0, 1.185, 0, 0, 0, 1.185, 0, 0.27, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_x2e2k")
-animation = &"Walk"
+animation = &"Aim"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Visuals" unique_id=1698001410]
 stream = ExtResource("5_easwj")
+volume_db = -1.0
 max_polyphony = 3
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=2090465743]
 stream = ExtResource("4_i4llj")
+volume_db = -3.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="agrro" to="." method="_on_agrro_area_entered"]

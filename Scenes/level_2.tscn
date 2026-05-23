@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://eoglxjpjsjb0" path="res://map_tiles.tres" id="1_12fag"]
 [ext_resource type="Material" uid="uid://bbykcxqisnx7d" path="res://PS1.tres" id="1_fhuy1"]
-[ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_i6dbo"]
+[ext_resource type="Script" uid="uid://dtkssort1sj00" path="res://Scenes/level_2.gd" id="1_i6dbo"]
 [ext_resource type="PackedScene" uid="uid://c6ij8l1e1vmvj" path="res://Scenes/Player.tscn" id="2_1q6tm"]
 [ext_resource type="Sky" uid="uid://bvnalt8syad1u" path="res://new_sky.tres" id="2_i6dbo"]
 [ext_resource type="Script" uid="uid://c6lnvnvv462ul" path="res://Scenes/objective.gd" id="3_e2piv"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://0l7g84621bsr" path="res://Scenes/3Dsprites/altar.tscn" id="4_42uki"]
 [ext_resource type="FontFile" uid="uid://baye4ng0ne0ls" path="res://Fonts/SalemwitchtrialRegular-OGeg4.otf" id="4_ijtdf"]
 [ext_resource type="Script" uid="uid://cgbh7plmyw114" path="res://Scenes/end.gd" id="5_c5xoi"]
-[ext_resource type="PackedScene" uid="uid://dvv43xh5x5m5v" path="res://Scenes/enemyRanged.tscn" id="5_e2piv"]
+[ext_resource type="PackedScene" uid="uid://bswjj38iav8pi" path="res://Scenes/enemyRanged.tscn" id="5_e2piv"]
 [ext_resource type="PackedScene" uid="uid://b6oejafatkeht" path="res://Scenes/3Dsprites/klupa.tscn" id="5_t7v2y"]
 [ext_resource type="PackedScene" uid="uid://bwy4gbnvurlpa" path="res://Scenes/3Dsprites/8_candles.tscn" id="6_ait6c"]
 [ext_resource type="AudioStream" uid="uid://iektclks62na" path="res://SFX/shing.wav" id="6_sfey3"]
