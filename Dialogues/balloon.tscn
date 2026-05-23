@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="Material" uid="uid://c8vrhx1cw1wqt" path="res://God1.tres" id="4_q7cj7"]
 [ext_resource type="Texture2D" uid="uid://b0eixlssnm1f3" path="res://Textures/god.png" id="4_taq3p"]
+[ext_resource type="AudioStream" uid="uid://dxd3wkb50j3ib" path="res://SFX/FootstepsConcrete1.wav" id="7_q7cj7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -260,11 +261,13 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1116280512]
 unique_name_in_owner = true
+stream = ExtResource("7_q7cj7")
 
 [node name="TimerEnd" type="Timer" parent="." unique_id=204882197]
 wait_time = 1.5
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="finished_typing" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_finished_typing"]
+[connection signal="spoke" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
 [connection signal="timeout" from="TimerEnd" to="." method="_on_timer_end_timeout"]

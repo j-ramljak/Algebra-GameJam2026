@@ -242,3 +242,8 @@ func _on_timer_end_timeout() -> void:
 	#$".".offset = Vector2(650,0)
 	var tween = get_tree().create_tween()
 	tween.tween_property($".","offset",Vector2(650,0),0.5)
+
+
+func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+	%AudioStreamPlayer.pitch_scale = randf_range(0.9,1.1)
+	%AudioStreamPlayer.play()

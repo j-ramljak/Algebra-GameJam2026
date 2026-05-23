@@ -7,8 +7,16 @@ extends Control
 @onready var level_3 = $"GridContainer/Calendar button11"
 @onready var level_4 = $"GridContainer/Calendar button12"
 
+const Balloon = preload("res://Dialogues/balloon.tscn")
+@export var dialogue_res : DialogueResource
+@export var dialogue_start: String = "start"
 
 func _ready():
+	
+	var balloon: Node = Balloon.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(dialogue_res,dialogue_start)
+	
 	$Ambience.play()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Global.last_level_pased == -1:
