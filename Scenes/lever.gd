@@ -14,6 +14,7 @@ signal interacted(body)
 
 func interact(body):
 	interacted.emit()
-	$AudioStreamPlayer.play()
+	if $AudioStreamPlayer:
+		$AudioStreamPlayer.play()
 	$CollisionShape3D.disabled=true
 	#emit_signal("interacted", body)

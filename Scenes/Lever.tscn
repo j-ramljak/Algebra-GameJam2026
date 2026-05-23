@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnaac6tctonua"]
 
-[ext_resource type="Script" path="res://Scenes/lever.gd" id="1_4x58u"]
+[ext_resource type="Script" uid="uid://bl7kmxphvcse6" path="res://Scenes/lever.gd" id="1_4x58u"]
 [ext_resource type="AudioStream" uid="uid://bl2hgsj0uuh0e" path="res://SFX/752753__sprinklecipher__toy-electronic-typewriter-return-lever.mp3" id="2_0so5j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wusd6"]

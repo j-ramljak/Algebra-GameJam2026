@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cb348yautmxlc" path="res://Scenes/3Dsprites/Cage.tscn" id="10_xjeco"]
 [ext_resource type="PackedScene" uid="uid://bnaac6tctonua" path="res://Scenes/Lever.tscn" id="19_s80er"]
 [ext_resource type="Texture2D" uid="uid://m2rl8yqvshd1" path="res://Textures/cage.png" id="20_2awvy"]
-[ext_resource type="Script" uid="uid://cpunk8fb0g7qq" path="res://Scenes/DoorOpen.gd" id="20_8jhox"]
+[ext_resource type="Script" path="res://Scenes/DoorOpen.gd" id="20_8jhox"]
 [ext_resource type="Texture2D" uid="uid://ckn3h14l4gujk" path="res://Textures/hardwood_floor.png" id="21_8jhox"]
 [ext_resource type="Script" uid="uid://ch788dx0r5mx2" path="res://Scenes/key.gd" id="22_hed5s"]
 [ext_resource type="Texture2D" uid="uid://d1i8pl3a12gm4" path="res://Textures/key.png" id="26_gmj2a"]
