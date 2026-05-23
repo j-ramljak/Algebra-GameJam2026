@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://mashf1xt7x4r"
+path="res://.godot/imported/EndCutsceneDialogue.dialogue-324c470fc5b4a0e2c847bc959ee38a7b.tres"
+
+[deps]
+
+source_file="res://Dialogues/EndCutsceneDialogue.dialogue"
+dest_files=["res://.godot/imported/EndCutsceneDialogue.dialogue-324c470fc5b4a0e2c847bc959ee38a7b.tres"]
+
+[params]
+
+defaults=true

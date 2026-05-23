@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c1i1jou80fdbi" path="res://SFX/ThereHeIs2.wav" id="3_qi2p4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4gyqm"]
+radius = 0.3
 height = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4gyqm"]
