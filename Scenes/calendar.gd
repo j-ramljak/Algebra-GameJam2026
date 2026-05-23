@@ -28,6 +28,7 @@ func update():
 		been_pressed = true
 		disabled = true
 	if just_finished:
+		AudioManager.playMarkerSelect()
 		$AnimatedSprite2D.play("x")
 		been_pressed = true
 		disabled = true
