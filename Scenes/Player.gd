@@ -60,6 +60,7 @@ var canBeHurt = true
 #@onready var pause_menu = $pause_menu
 @onready var pause_menu: Control = $"../pause_menu"
 var paused = false
+var dead = false
 #var gunShow = false
 #var torchOut = true
 
@@ -97,7 +98,7 @@ func _ready():
 	#shotgun.hide()
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and is_multiplayer_authority():
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and is_multiplayer_authority() and !dead:
 		body.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
@@ -109,6 +110,8 @@ func _process(delta: float) -> void:
 	#fire_shotgun()
 
 func _physics_process(delta: float) -> void:
+	
+	if dead: return
 	
 	var actionables = actionable_finder.get_overlapping_areas()
 	if actionables.size() > 0:
@@ -302,12 +305,16 @@ func hit(dir) -> void:
 
 
 func update_hp() -> void:
+	if dead: return
 	match HP:
 		2:
 			$Health/CanvasGroup/Third.show()
 		1:
 			$Health/CanvasGroup/Second.show()
 		_:
+			dead = true
+			canShoot = false
+			$PlayerDeath.play()
 			$Health/CanvasGroup/First.show()
 			$Health/AnimationPlayer.play("Death")
 			await get_tree().create_timer(4).timeout

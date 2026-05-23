@@ -94,6 +94,7 @@ func lose_hp() -> void:
 		$Area3D/CollisionShape3D.disabled = true
 		$agrro/CollisionShape3D.disabled = true
 		$lose_agrro/CollisionShape3D.disabled = true
+		$DeathSound.play()
 		var tween = get_tree().create_tween()
 		$Visuals/MeshInstance3D.hide()
 		$Visuals/Sprite3D.hide()
