@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1obhsbmerwnf"]
 
-[ext_resource type="Script" uid="uid://c2yfl1gwduutp" path="res://Scenes/level_1.gd" id="1_3b6ve"]
+[ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_3b6ve"]
 [ext_resource type="MeshLibrary" uid="uid://eoglxjpjsjb0" path="res://map_tiles.tres" id="1_vnunq"]
 [ext_resource type="PackedScene" uid="uid://c6ij8l1e1vmvj" path="res://Scenes/Player.tscn" id="2_nw7js"]
 [ext_resource type="PackedScene" uid="uid://bq8of3oh7nvnc" path="res://Scenes/pause_menu.tscn" id="3_nh7xm"]

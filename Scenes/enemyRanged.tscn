@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://n1mijlccuwxg" path="res://Scenes/enemyRanged.tscn.gd" id="1_sf8ly"]
 [ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_kk8la"]
 [ext_resource type="AudioStream" uid="uid://c1i1jou80fdbi" path="res://SFX/ThereHeIs2.wav" id="3_kk8la"]
+[ext_resource type="Texture2D" uid="uid://db68kueyul16t" path="res://Textures/character-gunV2.png" id="4_i4llj"]
+[ext_resource type="AudioStream" uid="uid://txv72cm8wmsx" path="res://SFX/Gunshot.wav" id="5_easwj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4gyqm"]
 radius = 0.3
@@ -179,6 +181,88 @@ height = 2.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf8ly"]
 albedo_color = Color(0.45604372, 0.56687784, 0.76649654, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvk31"]
+atlas = ExtResource("4_i4llj")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_easwj"]
+atlas = ExtResource("4_i4llj")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2e2k"]
+atlas = ExtResource("4_i4llj")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnqa2"]
+atlas = ExtResource("4_i4llj")
+region = Rect2(512, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4llj"]
+atlas = ExtResource("4_i4llj")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo66h"]
+atlas = ExtResource("4_i4llj")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw084"]
+atlas = ExtResource("4_i4llj")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5guf0"]
+atlas = ExtResource("4_i4llj")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2e2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvk31")
+}],
+"loop": true,
+"name": &"Aim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_easwj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_x2e2k")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qnqa2")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_i4llj")
+}],
+"loop": true,
+"name": &"Shoot",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo66h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw084")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5guf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw084")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 7.0
+}]
+
 [node name="enemyRanged" type="CharacterBody3D" unique_id=439418596 groups=["Enemy"]]
 script = ExtResource("1_sf8ly")
 
@@ -213,6 +297,7 @@ collision_mask = 4
 shape = SubResource("CylinderShape3D_kk8la")
 
 [node name="Eyes" type="Node3D" parent="." unique_id=1238033351]
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="Eyes" unique_id=528844989]
 transform = Transform3D(0.085, 0, 0, 0, 0.345, 8.881784e-16, 0, 0, 0.195, 0, 2.1489043, 0)
@@ -254,12 +339,24 @@ draw_pass_1 = SubResource("PlaneMesh_0vr7s")
 [node name="Visuals" type="Node3D" parent="." unique_id=758041218]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals" unique_id=612493021]
+visible = false
 mesh = SubResource("CapsuleMesh_7k104")
 surface_material_override/0 = SubResource("StandardMaterial3D_sf8ly")
 
 [node name="Sprite3D" type="Sprite3D" parent="Visuals" unique_id=105538703]
 transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 1.1924655, -0.46582514)
+visible = false
 texture = ExtResource("2_kk8la")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals" unique_id=1833956042]
+transform = Transform3D(1.185, 0, 0, 0, 1.185, 0, 0, 0, 1.185, 0, 0.27, 0)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_x2e2k")
+animation = &"Shoot"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Visuals" unique_id=1698001410]
+stream = ExtResource("5_easwj")
+max_polyphony = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="agrro" to="." method="_on_agrro_area_entered"]

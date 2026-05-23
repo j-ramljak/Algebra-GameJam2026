@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://eoglxjpjsjb0" path="res://map_tiles.tres" id="1_76ybr"]
 [ext_resource type="Material" uid="uid://bbykcxqisnx7d" path="res://PS1.tres" id="1_nbwsh"]
-[ext_resource type="Script" uid="uid://cvq85yb7n84bk" path="res://Scenes/level_3.gd" id="1_yykrm"]
+[ext_resource type="Script" path="res://Scenes/level_3.gd" id="1_yykrm"]
 [ext_resource type="Sky" uid="uid://bvnalt8syad1u" path="res://new_sky.tres" id="2_kgmqw"]
 [ext_resource type="PackedScene" uid="uid://c6ij8l1e1vmvj" path="res://Scenes/Player.tscn" id="2_s8nj6"]
 [ext_resource type="PackedScene" uid="uid://cxcmsmjjpjyuc" path="res://enemy.tscn" id="3_s80er"]
@@ -20,11 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://bwy4gbnvurlpa" path="res://Scenes/3Dsprites/8_candles.tscn" id="9_fxnjf"]
 [ext_resource type="Texture2D" uid="uid://bbcwka0ahfpo3" path="res://Textures/complete.png" id="10_nrv0r"]
 [ext_resource type="PackedScene" uid="uid://cb348yautmxlc" path="res://Scenes/3Dsprites/Cage.tscn" id="10_xjeco"]
-[ext_resource type="PackedScene" path="res://Scenes/Lever.tscn" id="19_s80er"]
+[ext_resource type="PackedScene" uid="uid://dh7hrq6otcque" path="res://Scenes/Lever.tscn" id="19_s80er"]
 [ext_resource type="Texture2D" uid="uid://m2rl8yqvshd1" path="res://Textures/cage.png" id="20_2awvy"]
-[ext_resource type="Script" path="res://Scenes/DoorOpen.gd" id="20_8jhox"]
+[ext_resource type="Script" uid="uid://cpunk8fb0g7qq" path="res://Scenes/DoorOpen.gd" id="20_8jhox"]
 [ext_resource type="Texture2D" uid="uid://ckn3h14l4gujk" path="res://Textures/hardwood_floor.png" id="21_8jhox"]
-[ext_resource type="Script" uid="uid://ch788dx0r5mx2" path="res://Scenes/key.gd" id="22_hed5s"]
+[ext_resource type="Script" path="res://Scenes/key.gd" id="22_hed5s"]
 
 [sub_resource type="Environment" id="Environment_gmj2a"]
 background_mode = 2
