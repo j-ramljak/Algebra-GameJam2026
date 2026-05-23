@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cb348yautmxlc" path="res://Scenes/3Dsprites/Cage.tscn" id="10_xjeco"]
 [ext_resource type="PackedScene" uid="uid://bnaac6tctonua" path="res://Scenes/Lever.tscn" id="19_s80er"]
 [ext_resource type="Texture2D" uid="uid://m2rl8yqvshd1" path="res://Textures/cage.png" id="20_2awvy"]
-[ext_resource type="Script" path="res://Scenes/DoorOpen.gd" id="20_8jhox"]
+[ext_resource type="Script" uid="uid://cpunk8fb0g7qq" path="res://Scenes/DoorOpen.gd" id="20_8jhox"]
 [ext_resource type="Texture2D" uid="uid://ckn3h14l4gujk" path="res://Textures/hardwood_floor.png" id="21_8jhox"]
 [ext_resource type="Script" uid="uid://ch788dx0r5mx2" path="res://Scenes/key.gd" id="22_hed5s"]
 [ext_resource type="Texture2D" uid="uid://d1i8pl3a12gm4" path="res://Textures/key.png" id="26_gmj2a"]
@@ -797,13 +797,12 @@ script = ExtResource("22_hed5s")
 
 [node name="Lever" parent="SubC/Sub/Key" unique_id=1435979909 instance=ExtResource("19_s80er")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0379906, 0.7273958, -79.78382)
-visible = false
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubC/Sub/Key" unique_id=1314898212]
 attenuation_model = 3
 
 [node name="Sprite3D" type="Sprite3D" parent="SubC/Sub/Key" unique_id=68155766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0379906, 0.7273958, -79.78382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0379906, 0.7273958, -79.578156)
 billboard = 2
 texture_filter = 0
 texture = ExtResource("26_gmj2a")
