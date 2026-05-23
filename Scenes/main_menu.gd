@@ -1,43 +1,60 @@
-extends Node2D
+extends Control
+
+@export var menuSprite : Sprite2D
+
+var buttons : Array
+
+func _ready() -> void:
+	buttons = get_tree().get_nodes_in_group("menu-button")
+
+func _on_play_button_mouse_entered() -> void:
+	AudioManager.playHover()
+	menuSprite.frame = 1
 
 
-var peer = ENetMultiplayerPeer.new()
-@export var PlayerScene: PackedScene
+func _on_credits_button_mouse_entered() -> void:
+	AudioManager.playHover()
+	menuSprite.frame = 0
+
+func _on_play_button_pressed() -> void:
+	AudioManager.playSelect()
+	for button in buttons:
+		button.visible = false
+	$PlayColor.visible = true
+	await(get_tree().create_timer(2).timeout)
+	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
 
 
-func _on_host_b_pressed() -> void:
+func _on_credits_button_pressed() -> void:
+	AudioManager.playSelect()
+	for button in buttons:
+		button.visible = false
+	menuSprite.visible = false
+	$Credits.visible = true
+
+
+func _on_quit_button_mouse_entered() -> void:
+	AudioManager.playHover()
+	menuSprite.frame = 2
+
+
+func _on_quit_button_pressed() -> void:
+	AudioManager.playSelect()
+	for button in buttons:
+		button.visible = false
+	$QuitColor.visible = true
+	await(get_tree().create_timer(2).timeout)
+	get_tree().quit()
 	
-	peer.create_server(1027)
-	multiplayer.multiplayer_peer = peer
-	multiplayer.peer_connected.connect(_add_player)
-	_add_player()
-	$".".hide()
 
 
-func _add_player(id = 1):
-	var player = PlayerScene.instantiate()
-	player.name = str(id)
-	print(id)
-	#Globals.PlayerId = str(id)
-	call_deferred("add_child",player)
+func _on_back_button_mouse_entered() -> void:
+	AudioManager.playHover()
 
 
-func _on_join_b_pressed() -> void:
-	
-	peer.create_client("localhost", 1027)
-	multiplayer.multiplayer_peer = peer
-	$".".hide()
-
-func exit_game(id):
-	#print("Player exited!")
-	#multiplayer.multiplayer_peer.disconnect_peer(id)
-	multiplayer.peer_disconnected.connect(del_player)
-	del_player(id)
-
-func del_player(id):
-	rpc("_del_player",id)
-
-@rpc("any_peer","call_local")
-func _del_player(id):
-	print("Deleting player")
-	get_node(str(id)).queue_free()
+func _on_back_button_pressed() -> void:
+	AudioManager.playSelect()
+	for button in buttons:
+		button.visible = true
+	menuSprite.visible = true
+	$Credits.visible = false

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Algebra GameJam2026"
-run/main_scene="uid://7v0btbkemdd1"
+run/main_scene="uid://b8rmtriwpdyg5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://clwbegx3u3oii"
 DialogueManager="*uid://c3rodes2l3gxb"
+AudioManager="*uid://dyiq1ad8gvaen"
 
 [dialogue_manager]
 
