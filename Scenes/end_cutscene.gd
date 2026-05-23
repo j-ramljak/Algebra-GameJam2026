@@ -17,3 +17,6 @@ func AnimStart() -> void:
 	$".".get_node("ExampleBalloon").Done.disconnect(AnimStart)
 	$AnimationPlayer.play("EndCutscene")
 	#print("Quiche is done")
+
+func BackToMM() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Main_Menu.tscn")

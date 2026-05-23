@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cb348yautmxlc" path="res://Scenes/3Dsprites/Cage.tscn" id="4_3ntyy"]
 [ext_resource type="PackedScene" uid="uid://ds8ota21ji0m3" path="res://Scenes/3Dsprites/armour_stand.tscn" id="5_7huqf"]
 [ext_resource type="PackedScene" uid="uid://cxcmsmjjpjyuc" path="res://enemy.tscn" id="5_qh6br"]
-[ext_resource type="PackedScene" uid="uid://dvv43xh5x5m5v" path="res://Scenes/enemyRanged.tscn" id="6_6xecf"]
+[ext_resource type="PackedScene" uid="uid://bswjj38iav8pi" path="res://Scenes/enemyRanged.tscn" id="6_6xecf"]
 [ext_resource type="PackedScene" uid="uid://fn31gu5oji66" path="res://Scenes/3Dsprites/lectern.tscn" id="6_di0d6"]
 [ext_resource type="Script" uid="uid://c6lnvnvv462ul" path="res://Scenes/objective.gd" id="6_nqprj"]
 [ext_resource type="PackedScene" uid="uid://0l7g84621bsr" path="res://Scenes/3Dsprites/altar.tscn" id="7_54c2w"]

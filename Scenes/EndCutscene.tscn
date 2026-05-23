@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://y4twho61lmc"]
 
-[ext_resource type="Script" path="res://Scenes/end_cutscene.gd" id="1_bhn4g"]
+[ext_resource type="Script" uid="uid://dl7kjkiq3ypfk" path="res://Scenes/end_cutscene.gd" id="1_bhn4g"]
 [ext_resource type="Resource" uid="uid://mashf1xt7x4r" path="res://Dialogues/EndCutsceneDialogue.dialogue" id="2_drcjr"]
 [ext_resource type="AudioStream" uid="uid://o3s8euubvxv3" path="res://SFX/Egg2.wav" id="3_mpdio"]
 [ext_resource type="AudioStream" uid="uid://bda2bcyx6cua8" path="res://SFX/Egg1.wav" id="4_bhe4e"]
 [ext_resource type="Texture2D" uid="uid://b0eixlssnm1f3" path="res://Textures/god.png" id="6_y2rh3"]
 [ext_resource type="Texture2D" uid="uid://g5xkuuuwmcm2" path="res://Textures/brain.png" id="7_0fjqo"]
+[ext_resource type="AudioStream" uid="uid://buj53v31x2ub6" path="res://SFX/chant.wav" id="7_bhe4e"]
+[ext_resource type="Texture2D" uid="uid://c1r0nqknal84l" path="res://Textures/WINNING.png" id="7_mpdio"]
 
 [sub_resource type="Gradient" id="Gradient_wjvld"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -15,7 +17,7 @@ gradient = SubResource("Gradient_wjvld")
 
 [sub_resource type="Animation" id="Animation_pbrm5"]
 resource_name = "EndCutscene"
-length = 7.5
+length = 11.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -141,8 +143,12 @@ tracks/9/path = NodePath("Animation/Chant")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"clips": [],
-"times": PackedFloat32Array()
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_bhe4e")
+}],
+"times": PackedFloat32Array(0)
 }
 tracks/9/use_blend = true
 tracks/10/type = "value"
@@ -192,6 +198,32 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Winning:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 7.5, 8, 9.5, 10),
+"transitions": PackedFloat32Array(0, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath(".")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(11),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"BackToMM"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_wjvld"]
@@ -328,6 +360,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Winning:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mpdio"]
 _data = {
@@ -384,3 +428,8 @@ centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1459721724]
 libraries/ = SubResource("AnimationLibrary_mpdio")
+
+[node name="Winning" type="Sprite2D" parent="." unique_id=1611682076]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+texture = ExtResource("7_mpdio")
