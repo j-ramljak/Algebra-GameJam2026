@@ -44,6 +44,7 @@ func _on_button_up():
 
 func _on_mouse_entered():
 	if not been_pressed:
+		AudioManager.playMarkerSelect()
 		$AnimatedSprite2D.play("o")
 
 

@@ -7,3 +7,6 @@ func playHover():
 
 func playSelect():
 	$MenuSelect.play()
+
+func playMarkerSelect():
+	$MarkerSelect.play()
