@@ -21,10 +21,12 @@ var agrro = false
 @onready var lose_agrro_range: Area3D = $lose_agrro
 
 
+@onready var animatedS: AnimatedSprite3D = $Visuals/AnimatedSprite3D
 
 
 func _ready() -> void:
 	player = get_node(player_path)
+	animatedS.play("StandingM")
 
 func _physics_process(delta: float) -> void:
 	if !dead:
@@ -53,10 +55,13 @@ func _physics_process(delta: float) -> void:
 
 
 func _target_in_range():
-	if global_position.distance_to(player.global_position) < ATTACK_RANGE +1.0:
-		var dir = global_position.direction_to(player.global_position)
-		player.hit(dir)
-		attacking = true
+	if !dead:
+		if global_position.distance_to(player.global_position) < ATTACK_RANGE +1.0:
+			var dir = global_position.direction_to(player.global_position)
+			animatedS.play("Melee")
+			velocity = Vector3.ZERO
+			player.hit(dir)
+			attacking = true
 
 
 func _on_timer_timeout() -> void:
@@ -69,6 +74,7 @@ func _on_timer_timeout() -> void:
 func _on_agrro_area_entered(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		agrro = true
+		animatedS.play("WalkingMelee")
 		var rand = randi_range(0,8)
 		if rand == 1:
 			$AudioStreamPlayer3D.pitch_scale=randf_range(0.8,1.2)
@@ -79,6 +85,7 @@ func _on_lose_agrro_area_exited(area: Area3D) -> void:
 	if area.is_in_group("Player"):
 		velocity = Vector3.ZERO
 		agrro = false
+		animatedS.play("StandingM")
 
 func lose_hp() -> void:
 	HP -= 1
@@ -86,9 +93,16 @@ func lose_hp() -> void:
 		var tween = get_tree().create_tween()
 		$Visuals/MeshInstance3D.hide()
 		$Visuals/Sprite3D.hide()
+		animatedS.hide()
+		animatedS.play("StandingM")
+		#tween.tween_property($Visuals/AnimatedSprite3D,"")
 		dead = true
 		$Death/GPUParticles3D.emitting = true
 		$Death/GPUParticles3D2.emitting = true
 		await get_tree().create_timer(4).timeout
 		queue_free()
 		
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	animatedS.play("WalkingMelee")

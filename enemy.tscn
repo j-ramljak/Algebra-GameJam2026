@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://kgt8awdwfcjd" path="res://enemy.gd" id="1_7k104"]
 [ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_4gyqm"]
 [ext_resource type="AudioStream" uid="uid://c1i1jou80fdbi" path="res://SFX/ThereHeIs2.wav" id="3_qi2p4"]
+[ext_resource type="Texture2D" uid="uid://mmc7xs58xqai" path="res://Textures/characterV2-export.png" id="4_iifgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4gyqm"]
 radius = 0.3
@@ -21,6 +22,81 @@ radius = 13.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7k104"]
 height = 2.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb8ge"]
+atlas = ExtResource("4_iifgy")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ltt"]
+atlas = ExtResource("4_iifgy")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxifv"]
+atlas = ExtResource("4_iifgy")
+region = Rect2(512, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("4_iifgy")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
+atlas = ExtResource("4_iifgy")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
+atlas = ExtResource("4_iifgy")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wujgv"]
+atlas = ExtResource("4_iifgy")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hb8ge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb8ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1ltt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxifv")
+}],
+"loop": true,
+"name": &"Melee",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}],
+"loop": true,
+"name": &"StandingM",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wujgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqyl")
+}],
+"loop": true,
+"name": &"WalkingMelee",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Curve" id="Curve_hb8ge"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1418919, 1), 0.0, 0.0, 0, 0, Vector2(0.7972973, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -190,7 +266,6 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=215192227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19635487, -1.1006787)
-visible = false
 shape = SubResource("BoxShape3D_4gyqm")
 
 [node name="Timer" type="Timer" parent="." unique_id=148765915]
@@ -219,11 +294,21 @@ volume_db = -3.0
 [node name="Visuals" type="Node3D" parent="." unique_id=606250373]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals" unique_id=612493021]
+visible = false
 mesh = SubResource("CapsuleMesh_7k104")
 
 [node name="Sprite3D" type="Sprite3D" parent="Visuals" unique_id=105538703]
 transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 1.1924655, -0.46582514)
+visible = false
 texture = ExtResource("2_4gyqm")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals" unique_id=481894083]
+transform = Transform3D(1.185, 0, 0, 0, 1.185, 0, 0, 0, 1.185, 0, 0.27, 0)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_hb8ge")
+animation = &"Melee"
+frame = 1
+frame_progress = 0.7042173
 
 [node name="Death" type="Node3D" parent="." unique_id=298937343]
 
@@ -251,6 +336,7 @@ one_shot = true
 process_material = SubResource("ParticleProcessMaterial_n0g06")
 draw_pass_1 = SubResource("PlaneMesh_nnovl")
 
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="agrro" to="." method="_on_agrro_area_entered"]
 [connection signal="area_exited" from="lose_agrro" to="." method="_on_lose_agrro_area_exited"]

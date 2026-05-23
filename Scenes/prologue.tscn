@@ -20,10 +20,10 @@
 [ext_resource type="Script" uid="uid://bwbu4kb1srriy" path="res://Scenes/animation_player.gd" id="18_h52fu"]
 [ext_resource type="Texture2D" uid="uid://cwd8kfsdio815" path="res://Textures/tunger.png" id="19_gflsd"]
 [ext_resource type="AudioStream" uid="uid://blfqyicahjtqd" path="res://SFX/BGprologue.wav" id="20_odspg"]
-[ext_resource type="Script" uid="uid://c6lnvnvv462ul" path="res://Scenes/objective.gd" id="20_y7584"]
+[ext_resource type="Script" path="res://Scenes/objective.gd" id="20_y7584"]
 [ext_resource type="FontFile" uid="uid://baye4ng0ne0ls" path="res://Fonts/SalemwitchtrialRegular-OGeg4.otf" id="21_emj0k"]
 [ext_resource type="Texture2D" uid="uid://bbcwka0ahfpo3" path="res://Textures/complete.png" id="23_bdkh3"]
-[ext_resource type="Script" uid="uid://cgbh7plmyw114" path="res://Scenes/end.gd" id="23_oafjd"]
+[ext_resource type="Script" path="res://Scenes/end.gd" id="23_oafjd"]
 [ext_resource type="AudioStream" uid="uid://iektclks62na" path="res://SFX/shing.wav" id="24_oafjd"]
 
 [sub_resource type="Environment" id="Environment_jiqjm"]
@@ -763,7 +763,6 @@ shape = SubResource("BoxShape3D_rt4ci")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 3.0561457, -9)
 
 [node name="pause_menu" parent="SubC/Sub" unique_id=1386414847 instance=ExtResource("3_t2qym")]
-z_index = 5
 
 [node name="Actionable" parent="SubC/Sub" unique_id=518993178 groups=["Trigger"] instance=ExtResource("12_t2qym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.919, 0, 1.8783791)
