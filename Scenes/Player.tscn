@@ -451,6 +451,7 @@ panning_strength = 0.0
 [node name="TextureRect" type="TextureRect" parent="." unique_id=469470709]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="ActionableFinder" type="Area3D" parent="." unique_id=807052187 groups=["Player", "Trigger"]]
 collision_layer = 22
@@ -466,6 +467,7 @@ offset_left = 67.0
 offset_top = 893.0
 offset_right = 550.105
 offset_bottom = 1002.78
+mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Health" unique_id=546240410]
 position = Vector2(308, 947.00006)

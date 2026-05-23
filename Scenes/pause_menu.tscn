@@ -4,6 +4,8 @@
 
 [node name="pause_menu" type="Control" unique_id=1386414847]
 visible = false
+z_index = 5
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
