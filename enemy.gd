@@ -7,7 +7,7 @@ const ATTACK_RANGE = 2.5
 
 var dead = false
 
-var HP = 3
+var HP = 2
 
 @export var player_path :NodePath
 

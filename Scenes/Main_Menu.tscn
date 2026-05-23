@@ -1,26 +1,161 @@
 [gd_scene format=3 uid="uid://b8rmtriwpdyg5"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://tpm3fpn1ape8" path="res://Scenes/main_menu.gd" id="1_c4tk2"]
+[ext_resource type="Texture2D" uid="uid://c65nas7riqfhm" path="res://character-menu.png" id="2_b7rmo"]
+[ext_resource type="FontFile" uid="uid://baye4ng0ne0ls" path="res://Fonts/SalemwitchtrialRegular-OGeg4.otf" id="3_00u4r"]
+[ext_resource type="Texture2D" uid="uid://c23wp5flx00f7" path="res://game-title.png" id="4_00u4r"]
 
-[node name="HostB" type="Button" parent="."]
-offset_left = 16.0
-offset_top = 141.0
-offset_right = 60.0
-offset_bottom = 172.0
-text = "Host"
+[node name="Menu" type="Control" unique_id=1048729694 node_paths=PackedStringArray("menuSprite")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c4tk2")
+menuSprite = NodePath("Player")
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=329740506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+
+[node name="Player" type="Sprite2D" parent="." unique_id=1556985976]
+position = Vector2(1564.0001, 645)
+scale = Vector2(5, 5)
+texture = ExtResource("2_b7rmo")
+hframes = 3
+frame = 1
+
+[node name="PlayButton" type="Button" parent="." unique_id=617640590 groups=["menu-button"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.008854167
+anchor_top = -0.022222223
+anchor_right = -0.008854167
+anchor_bottom = -0.022222223
+offset_left = 244.0
+offset_top = 584.0
+offset_right = 742.0
+offset_bottom = 715.0
+theme_override_fonts/font = ExtResource("3_00u4r")
+theme_override_font_sizes/font_size = 100
+text = "PLAY"
 metadata/_edit_use_anchors_ = true
 
-[node name="JoinB" type="Button" parent="."]
-offset_left = 21.0
-offset_top = 192.0
-offset_right = 59.0
-offset_bottom = 223.0
-text = "Join"
+[node name="CreditsButton" type="Button" parent="." unique_id=1608083748 groups=["menu-button"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26822916
+anchor_top = 0.094444446
+anchor_right = 0.26822916
+anchor_bottom = 0.094444446
+offset_left = 244.0
+offset_top = 669.0
+offset_right = 742.0
+offset_bottom = 800.0
+theme_override_fonts/font = ExtResource("3_00u4r")
+theme_override_font_sizes/font_size = 100
+text = "CREDITS"
 metadata/_edit_use_anchors_ = true
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/Player.tscn")
-spawn_path = NodePath("..")
+[node name="QuitButton" type="Button" parent="." unique_id=1556311647 groups=["menu-button"]]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 888.0
+offset_right = 681.0
+offset_bottom = 1019.0
+theme_override_fonts/font = ExtResource("3_00u4r")
+theme_override_font_sizes/font_size = 100
+text = "QUIT"
 
-[connection signal="pressed" from="HostB" to="." method="_on_host_b_pressed"]
-[connection signal="pressed" from="JoinB" to="." method="_on_join_b_pressed"]
+[node name="Logo" type="Sprite2D" parent="." unique_id=965389080]
+position = Vector2(666.99994, 179.99998)
+scale = Vector2(4.9199963, 4.9199963)
+texture = ExtResource("4_00u4r")
+
+[node name="PlayColor" type="ColorRect" parent="." unique_id=329572281]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="QuitColor" type="ColorRect" parent="." unique_id=878747782]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9997594, 0.1255379, 0.08727921, 1)
+
+[node name="Credits" type="Control" parent="." unique_id=1044500595]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -256.0
+offset_right = 384.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits" unique_id=1755823302]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -159.5
+offset_right = 229.0
+offset_bottom = 159.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_00u4r")
+theme_override_font_sizes/normal_font_size = 60
+text = "CREATED BY
+	JAN PUZAK
+	JAKOV RAMLJAK
+	BORNA MIŠETIĆ"
+
+[node name="BackButton" type="Button" parent="Credits" unique_id=1483517704]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -87.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_00u4r")
+theme_override_font_sizes/font_size = 64
+text = "BACK"
+
+[connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="CreditsButton" to="." method="_on_credits_button_mouse_entered"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="Credits/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="Credits/BackButton" to="." method="_on_back_button_pressed"]

@@ -14,16 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://bgynseoppfjh1" path="res://Models/Prologue/PakOtv.tscn" id="11_2jbdw"]
 [ext_resource type="PackedScene" uid="uid://dst1p88g1j2xf" path="res://Scenes/Actionable.tscn" id="12_t2qym"]
 [ext_resource type="Resource" uid="uid://cf2nmfqi3l45l" path="res://Dialogues/Test1.dialogue" id="13_t7dfo"]
-[ext_resource type="Script" uid="uid://bl7kmxphvcse6" path="res://Scenes/lever.gd" id="15_1egle"]
+[ext_resource type="Script" path="res://Scenes/lever.gd" id="15_1egle"]
 [ext_resource type="AudioStream" uid="uid://cwy8nadn1weh4" path="res://SFX/OpenSFX.wav" id="16_iv6r8"]
 [ext_resource type="AudioStream" uid="uid://ce8nsyge3klv" path="res://SFX/Angel - Sound Effect (HD).wav" id="17_h52fu"]
 [ext_resource type="Script" uid="uid://bwbu4kb1srriy" path="res://Scenes/animation_player.gd" id="18_h52fu"]
-[ext_resource type="Texture2D" uid="uid://cwd8kfsdio815" path="res://Textures/tunger.png" id="19_gflsd"]
+[ext_resource type="Texture2D" uid="uid://bh2e7cs1v8ebf" path="res://Textures/gun_reward.png" id="19_oafjd"]
 [ext_resource type="AudioStream" uid="uid://blfqyicahjtqd" path="res://SFX/BGprologue.wav" id="20_odspg"]
-[ext_resource type="Script" path="res://Scenes/objective.gd" id="20_y7584"]
+[ext_resource type="Script" uid="uid://c6lnvnvv462ul" path="res://Scenes/objective.gd" id="20_y7584"]
 [ext_resource type="FontFile" uid="uid://baye4ng0ne0ls" path="res://Fonts/SalemwitchtrialRegular-OGeg4.otf" id="21_emj0k"]
 [ext_resource type="Texture2D" uid="uid://bbcwka0ahfpo3" path="res://Textures/complete.png" id="23_bdkh3"]
-[ext_resource type="Script" path="res://Scenes/end.gd" id="23_oafjd"]
+[ext_resource type="Script" uid="uid://cgbh7plmyw114" path="res://Scenes/end.gd" id="23_oafjd"]
 [ext_resource type="AudioStream" uid="uid://iektclks62na" path="res://SFX/shing.wav" id="24_oafjd"]
 
 [sub_resource type="Environment" id="Environment_jiqjm"]
@@ -809,7 +809,7 @@ color = Color(0, 0, 0, 0)
 modulate = Color(1, 1, 1, 0)
 position = Vector2(954, 527)
 scale = Vector2(1.9233333, 1.9233333)
-texture = ExtResource("19_gflsd")
+texture = ExtResource("19_oafjd")
 
 [node name="Open" type="AudioStreamPlayer3D" parent="SubC/Sub/Cutscene" unique_id=2139992528]
 attenuation_model = 3

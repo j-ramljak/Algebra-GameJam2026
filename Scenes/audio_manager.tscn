@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dyiq1ad8gvaen"]
+
+[ext_resource type="Script" uid="uid://dkvbog3dokspm" path="res://audio_manager.gd" id="1_4tj6f"]
+[ext_resource type="AudioStream" uid="uid://ct76c7tpejpny" path="res://SFX/menu-hover.wav" id="2_hhwve"]
+[ext_resource type="AudioStream" uid="uid://dwd6qppgut8mq" path="res://SFX/Gunshot2.wav" id="3_hhwve"]
+[ext_resource type="AudioStream" uid="uid://cj6q22lxfkoc8" path="res://SFX/marker-noise.wav" id="4_qixve"]
+
+[node name="AudioManager" type="Node" unique_id=830075503]
+script = ExtResource("1_4tj6f")
+
+[node name="MenuHover" type="AudioStreamPlayer" parent="." unique_id=1822215629]
+stream = ExtResource("2_hhwve")
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="." unique_id=94622068]
+stream = ExtResource("3_hhwve")
+
+[node name="MarkerSelect" type="AudioStreamPlayer" parent="." unique_id=338930342]
+stream = ExtResource("4_qixve")
