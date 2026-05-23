@@ -21,35 +21,35 @@ radius = 13.0
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7k104"]
 height = 2.5
 
+[sub_resource type="Curve" id="Curve_hb8ge"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1418919, 1), 0.0, 0.0, 0, 0, Vector2(0.7972973, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_qi2p4"]
+curve = SubResource("Curve_hb8ge")
+
 [sub_resource type="Curve" id="Curve_iifgy"]
-_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_epg4t"]
-curve = SubResource("Curve_iifgy")
-
-[sub_resource type="Curve" id="Curve_qi2p4"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_iifgy"]
-curve = SubResource("Curve_qi2p4")
+curve = SubResource("Curve_iifgy")
 
-[sub_resource type="Curve" id="Curve_epg4t"]
+[sub_resource type="Curve" id="Curve_dxifv"]
 
-[sub_resource type="CurveTexture" id="CurveTexture_3yqyl"]
-curve = SubResource("Curve_epg4t")
+[sub_resource type="CurveTexture" id="CurveTexture_epg4t"]
+curve = SubResource("Curve_dxifv")
 
-[sub_resource type="Curve" id="Curve_3yqyl"]
+[sub_resource type="Curve" id="Curve_ar8e5"]
 _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_qi2p4"]
-curve = SubResource("Curve_3yqyl")
+[sub_resource type="CurveTexture" id="CurveTexture_3yqyl"]
+curve = SubResource("Curve_ar8e5")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wujgv"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5hcft"]
 emission_shape = 6
 emission_ring_axis = Vector3(0, 90, 1)
 emission_ring_height = 0.1
@@ -61,21 +61,21 @@ spread = 0.0
 initial_velocity_min = 3.0
 initial_velocity_max = 3.0
 angular_velocity_curve = SubResource("CurveTexture_iifgy")
-orbit_velocity_curve = SubResource("CurveTexture_3yqyl")
+orbit_velocity_curve = SubResource("CurveTexture_epg4t")
 radial_velocity_min = -2.2351742e-05
 radial_velocity_max = -2.2351742e-05
 gravity = Vector3(0, 0, 0)
 radial_accel_min = -2.2351742e-06
 radial_accel_max = -2.2351742e-06
-tangential_accel_curve = SubResource("CurveTexture_qi2p4")
-alpha_curve = SubResource("CurveTexture_epg4t")
+tangential_accel_curve = SubResource("CurveTexture_3yqyl")
+alpha_curve = SubResource("CurveTexture_qi2p4")
 
-[sub_resource type="Gradient" id="Gradient_hb8ge"]
+[sub_resource type="Gradient" id="Gradient_wujgv"]
 offsets = PackedFloat32Array(0.9126984, 1)
 colors = PackedColorArray(0.32477808, 0.21159896, 0.47916448, 1, 0.3254902, 0.21176471, 0.47843137, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_e1ltt"]
-gradient = SubResource("Gradient_hb8ge")
+gradient = SubResource("Gradient_wujgv")
 width = 200
 height = 200
 fill = 1
@@ -84,8 +84,9 @@ fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxifv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb8ge"]
 transparency = 1
+vertex_color_use_as_albedo = true
 albedo_texture = SubResource("GradientTexture2D_e1ltt")
 texture_filter = 0
 billboard_mode = 3
@@ -94,24 +95,32 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pwjut"]
-material = SubResource("StandardMaterial3D_dxifv")
+material = SubResource("StandardMaterial3D_hb8ge")
 size = Vector2(0.1, 0.1)
 orientation = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e1ltt"]
+curve = SubResource("Curve_hb8ge")
 
 [sub_resource type="Curve" id="Curve_wujgv"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_hb8ge"]
+[sub_resource type="CurveTexture" id="CurveTexture_dxifv"]
 curve = SubResource("Curve_wujgv")
 
 [sub_resource type="Curve" id="Curve_e1ltt"]
 
-[sub_resource type="CurveTexture" id="CurveTexture_dxifv"]
+[sub_resource type="CurveTexture" id="CurveTexture_pwjut"]
 curve = SubResource("Curve_e1ltt")
 
-[sub_resource type="CurveTexture" id="CurveTexture_pwjut"]
+[sub_resource type="Curve" id="Curve_3yqyl"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n0g06"]
 curve = SubResource("Curve_3yqyl")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n0g06"]
@@ -122,18 +131,19 @@ emission_ring_radius = 0.1
 emission_ring_inner_radius = 0.2
 emission_ring_cone_angle = 90.0
 direction = Vector3(0, 1, 0)
-spread = 0.0
+spread = 10.0
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
-angular_velocity_curve = SubResource("CurveTexture_hb8ge")
-orbit_velocity_curve = SubResource("CurveTexture_dxifv")
+angular_velocity_curve = SubResource("CurveTexture_dxifv")
+orbit_velocity_curve = SubResource("CurveTexture_pwjut")
 radial_velocity_min = -2.2351742e-05
 radial_velocity_max = -2.2351742e-05
 gravity = Vector3(0, 0, 0)
 radial_accel_min = -2.2351742e-06
 radial_accel_max = -2.2351742e-06
-tangential_accel_curve = SubResource("CurveTexture_pwjut")
+tangential_accel_curve = SubResource("CurveTexture_n0g06")
 attractor_interaction_enabled = false
+alpha_curve = SubResource("CurveTexture_e1ltt")
 
 [sub_resource type="Gradient" id="Gradient_ar8e5"]
 offsets = PackedFloat32Array(0.9126984, 1)
@@ -149,8 +159,9 @@ fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hcft"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_doop2"]
 transparency = 1
+vertex_color_use_as_albedo = true
 albedo_texture = SubResource("GradientTexture2D_doop2")
 texture_filter = 0
 billboard_mode = 3
@@ -159,7 +170,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nnovl"]
-material = SubResource("StandardMaterial3D_5hcft")
+material = SubResource("StandardMaterial3D_doop2")
 size = Vector2(1, 1)
 orientation = 2
 
@@ -217,10 +228,11 @@ texture = ExtResource("2_4gyqm")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Death" unique_id=841514413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8658823, 0)
-visible = false
+emitting = false
 amount = 500
 lifetime = 0.7
-process_material = SubResource("ParticleProcessMaterial_wujgv")
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_5hcft")
 draw_pass_1 = SubResource("PlaneMesh_pwjut")
 
 [node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="Death" unique_id=1148508819]
@@ -231,9 +243,10 @@ radius = 1.3
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="Death" unique_id=1904739883]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8658823, 0)
-visible = false
+emitting = false
 amount = 10
 lifetime = 2.0
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_n0g06")
 draw_pass_1 = SubResource("PlaneMesh_nnovl")
 

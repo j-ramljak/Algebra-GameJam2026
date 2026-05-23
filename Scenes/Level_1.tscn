@@ -9,10 +9,398 @@
 [ext_resource type="PackedScene" uid="uid://b6oejafatkeht" path="res://Scenes/3Dsprites/klupa.tscn" id="7_5r5j8"]
 [ext_resource type="PackedScene" uid="uid://ds8ota21ji0m3" path="res://Scenes/3Dsprites/armour_stand.tscn" id="8_akpl7"]
 [ext_resource type="PackedScene" uid="uid://bwy4gbnvurlpa" path="res://Scenes/3Dsprites/8_candles.tscn" id="9_aur7v"]
+[ext_resource type="Material" uid="uid://bbykcxqisnx7d" path="res://PS1.tres" id="10_pdmgb"]
+[ext_resource type="Sky" uid="uid://bvnalt8syad1u" path="res://new_sky.tres" id="11_2jeek"]
+[ext_resource type="Script" uid="uid://c6lnvnvv462ul" path="res://Scenes/objective.gd" id="12_yytvd"]
+[ext_resource type="FontFile" uid="uid://baye4ng0ne0ls" path="res://Fonts/SalemwitchtrialRegular-OGeg4.otf" id="13_neuul"]
+[ext_resource type="Script" uid="uid://cgbh7plmyw114" path="res://Scenes/end.gd" id="14_neuul"]
+[ext_resource type="AudioStream" uid="uid://iektclks62na" path="res://SFX/shing.wav" id="15_m620h"]
+[ext_resource type="Texture2D" uid="uid://bbcwka0ahfpo3" path="res://Textures/complete.png" id="16_3b6ve"]
 
-[node name="Level 1" type="Node3D" unique_id=368131766]
+[sub_resource type="Environment" id="Environment_m620h"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+sky = ExtResource("11_2jeek")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0203
+volumetric_fog_emission = Color(1, 1, 1, 1)
+volumetric_fog_length = 100.0
+volumetric_fog_sky_affect = 0.701
 
-[node name="GridMap" type="GridMap" parent="." unique_id=1618716956]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3b6ve"]
+blend_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_oafjd"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fkrcq"]
+gradient = SubResource("Gradient_oafjd")
+
+[sub_resource type="Animation" id="Animation_megsn"]
+resource_name = "Objective"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 2, 1, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-960, 0), Vector2(-960, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup/Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 2, 1, 2),
+"update": 0,
+"values": [Vector2(960, 0), Vector2(1920, 0), Vector2(1920, 0), Vector2(960, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yoq75"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup/Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_el8jc"]
+_data = {
+&"Objective": SubResource("Animation_megsn"),
+&"RESET": SubResource("Animation_yoq75")
+}
+
+[sub_resource type="Animation" id="Animation_bdkh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cttix"]
+resource_name = "complete"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.3, 1.5),
+"transitions": PackedFloat32Array(1, 0.5, 2, 2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_m620h")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gradient:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666667, 0.3, 0.99999994),
+"transitions": PackedFloat32Array(2, 0.5, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3896507, 2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkrcq"]
+_data = {
+&"RESET": SubResource("Animation_bdkh3"),
+&"complete": SubResource("Animation_cttix")
+}
+
+[sub_resource type="Gradient" id="Gradient_cttix"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.38554215, 0.92771083)
+colors = PackedColorArray(0.9500608, 0.65268105, 0.17079669, 0.8156863, 0.9843137, 0.7058824, 0.29803923, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_el8jc"]
+gradient = SubResource("Gradient_cttix")
+width = 400
+height = 400
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
+
+[node name="Game" type="Node3D" unique_id=365907212]
+
+[node name="SubC" type="SubViewportContainer" parent="." unique_id=127239926]
+material = ExtResource("10_pdmgb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Sub" type="SubViewport" parent="SubC" unique_id=546087226]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Bullet_decals" type="Node3D" parent="SubC/Sub" unique_id=822829936]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubC/Sub" unique_id=429032369]
+environment = SubResource("Environment_m620h")
+
+[node name="pause_menu" parent="SubC/Sub" unique_id=1849179841 instance=ExtResource("3_nh7xm")]
+z_index = 5
+
+[node name="Objective" type="Node3D" parent="SubC/Sub" unique_id=1512092747]
+script = ExtResource("12_yytvd")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="SubC/Sub/Objective" unique_id=1337515233]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubC/Sub/Objective/CanvasGroup" unique_id=567067159]
+custom_minimum_size = Vector2(1920, 0)
+offset_right = 1920.0
+offset_bottom = 182.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Container" type="Container" parent="SubC/Sub/Objective/CanvasGroup/VBoxContainer" unique_id=647219373]
+custom_minimum_size = Vector2(0, 23.325)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubC/Sub/Objective/CanvasGroup/VBoxContainer" unique_id=1754689327]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85490197, 0.6, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("13_neuul")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "OBJECTIVE"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container2" type="Container" parent="SubC/Sub/Objective/CanvasGroup/VBoxContainer" unique_id=447856730]
+custom_minimum_size = Vector2(0, 23.325)
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="SubC/Sub/Objective/CanvasGroup/VBoxContainer" unique_id=1406474207]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85605127, 0.5993911, 0.6291228, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("13_neuul")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[shake rate=6.0 level=5 connected=1]KILL THEM ALL[/shake]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SubC/Sub/Objective/CanvasGroup" unique_id=961806503]
+material = SubResource("CanvasItemMaterial_3b6ve")
+scale = Vector2(15, 3.375)
+texture = SubResource("GradientTexture2D_fkrcq")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="SubC/Sub/Objective/CanvasGroup" unique_id=843627064]
+material = SubResource("CanvasItemMaterial_3b6ve")
+position = Vector2(960, 0)
+scale = Vector2(15, 3.375)
+texture = SubResource("GradientTexture2D_fkrcq")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubC/Sub/Objective" unique_id=1567457333]
+libraries/ = SubResource("AnimationLibrary_el8jc")
+
+[node name="Timer" type="Timer" parent="SubC/Sub/Objective" unique_id=1843532829]
+one_shot = true
+
+[node name="Bilboards" type="Node3D" parent="SubC/Sub" unique_id=1686148869]
+
+[node name="Cage" parent="SubC/Sub/Bilboards" unique_id=1728730399 instance=ExtResource("4_nw7js")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.331987, 0, -6.154379)
+
+[node name="Altar" parent="SubC/Sub/Bilboards" unique_id=1619630166 instance=ExtResource("5_nh7xm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.915346, 0.12619984, -17.527733)
+
+[node name="Lectern" parent="SubC/Sub/Bilboards" unique_id=1451573234 instance=ExtResource("6_j0k67")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 26.662466, 0.09279728, 16.65706)
+
+[node name="Klupa" parent="SubC/Sub/Bilboards" unique_id=95247510 instance=ExtResource("7_5r5j8")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 19.093264, 0.06003201, -13.802639)
+
+[node name="Klupa2" parent="SubC/Sub/Bilboards" unique_id=890893557 instance=ExtResource("7_5r5j8")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 25.020107, 0.06003201, -13.802639)
+
+[node name="Klupa3" parent="SubC/Sub/Bilboards" unique_id=208364572 instance=ExtResource("7_5r5j8")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 13.095011, 0.06003201, -13.802639)
+
+[node name="Klupa4" parent="SubC/Sub/Bilboards" unique_id=1735484843 instance=ExtResource("7_5r5j8")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 19.093264, 0.06003201, -7.6874866)
+
+[node name="Klupa5" parent="SubC/Sub/Bilboards" unique_id=498738761 instance=ExtResource("7_5r5j8")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 25.020107, 0.06003201, -7.6874866)
+
+[node name="Klupa6" parent="SubC/Sub/Bilboards" unique_id=1235665410 instance=ExtResource("7_5r5j8")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 13.095011, 0.06003201, -7.6874866)
+
+[node name="Klupa7" parent="SubC/Sub/Bilboards" unique_id=1637877561 instance=ExtResource("7_5r5j8")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 19.093264, 0.06003201, -2.653091)
+
+[node name="Klupa8" parent="SubC/Sub/Bilboards" unique_id=331878716 instance=ExtResource("7_5r5j8")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 25.020107, 0.06003201, -2.653091)
+
+[node name="Klupa9" parent="SubC/Sub/Bilboards" unique_id=438473220 instance=ExtResource("7_5r5j8")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 13.095011, 0.06003201, -2.653091)
+
+[node name="Armour stand" parent="SubC/Sub/Bilboards" unique_id=259730674 instance=ExtResource("8_akpl7")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 10.96826, 0.12135029, 8.93436)
+
+[node name="Lectern2" parent="SubC/Sub/Bilboards" unique_id=295931187 instance=ExtResource("6_j0k67")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 5.0219088, 0.09279728, 21.175253)
+
+[node name="Lectern3" parent="SubC/Sub/Bilboards" unique_id=232641589 instance=ExtResource("6_j0k67")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 7.924857, 0.09279728, 21.370699)
+
+[node name="Lectern4" parent="SubC/Sub/Bilboards" unique_id=97209694 instance=ExtResource("6_j0k67")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 10.897852, 0.09279728, 21.291134)
+
+[node name="Cage2" parent="SubC/Sub/Bilboards" unique_id=744206359 instance=ExtResource("4_nw7js")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.773395, 0.14276505, 32.121292)
+
+[node name="Armour stand2" parent="SubC/Sub/Bilboards" unique_id=1392311569 instance=ExtResource("8_akpl7")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 18.783737, 0.12135029, 32.892757)
+
+[node name="Altar2" parent="SubC/Sub/Bilboards" unique_id=791495077 instance=ExtResource("5_nh7xm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.882004, 0.12619984, 21.304081)
+
+[node name="8Candles" parent="SubC/Sub/Bilboards" unique_id=1675638654 instance=ExtResource("9_aur7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.502464, 0.08769366, 23.01565)
+
+[node name="8Candles2" parent="SubC/Sub/Bilboards" unique_id=304482449 instance=ExtResource("9_aur7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.672268, 0.10606703, 4.294382)
+
+[node name="Cage3" parent="SubC/Sub/Bilboards" unique_id=1006605849 instance=ExtResource("4_nw7js")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.165738, 0.14276505, 6.111414)
+
+[node name="Cage4" parent="SubC/Sub/Bilboards" unique_id=2112892065 instance=ExtResource("4_nw7js")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 46.805557, 0.14276505, 4.521658)
+
+[node name="Armour stand3" parent="SubC/Sub/Bilboards" unique_id=1982089493 instance=ExtResource("8_akpl7")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 46.38093, 0.12135029, 23.257326)
+
+[node name="Altar3" parent="SubC/Sub/Bilboards" unique_id=1681157174 instance=ExtResource("5_nh7xm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 35.54107, -0.080551505, -1.0187619)
+
+[node name="Cage5" parent="SubC/Sub/Bilboards" unique_id=1977795025 instance=ExtResource("4_nw7js")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 56.57308, 0.14276505, 30.740856)
+
+[node name="Lectern5" parent="SubC/Sub/Bilboards" unique_id=1216200605 instance=ExtResource("6_j0k67")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 56.94683, 0.09279728, 9.015631)
+
+[node name="Lectern6" parent="SubC/Sub/Bilboards" unique_id=39481621 instance=ExtResource("6_j0k67")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 56.899097, 0.09279728, 10.91073)
+
+[node name="Lectern7" parent="SubC/Sub/Bilboards" unique_id=344960866 instance=ExtResource("6_j0k67")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 56.8944, 0.09279728, 12.851983)
+
+[node name="Player" parent="SubC/Sub" unique_id=240721311 instance=ExtResource("2_nw7js")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1491187, 0)
+
+[node name="GridMap" type="GridMap" parent="SubC/Sub" unique_id=1618716956]
 mesh_library = ExtResource("1_vnunq")
 cell_center_y = false
 data = {
@@ -20,96 +408,37 @@ data = {
 }
 metadata/_edit_group_ = true
 
-[node name="Player" parent="." unique_id=240721311 instance=ExtResource("2_nw7js")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1491187, 0)
+[node name="Complete" type="Node3D" parent="SubC/Sub" unique_id=1173747040]
+script = ExtResource("14_neuul")
 
-[node name="pause_menu" parent="." unique_id=1386414847 instance=ExtResource("3_nh7xm")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubC/Sub/Complete" unique_id=1915939491]
+libraries/ = SubResource("AnimationLibrary_fkrcq")
+speed_scale = 0.9
 
-[node name="Bilboards" type="Node3D" parent="." unique_id=1686148869]
+[node name="Gradient" type="Sprite2D" parent="SubC/Sub/Complete" unique_id=162734367]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(4.235, 1)
+texture = SubResource("GradientTexture2D_el8jc")
 
-[node name="Cage" parent="Bilboards" unique_id=1728730399 instance=ExtResource("4_nw7js")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.331987, 0, -6.154379)
+[node name="Sprite2D" type="Sprite2D" parent="SubC/Sub/Complete" unique_id=1694757160]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("16_3b6ve")
+offset = Vector2(960, 540)
 
-[node name="Altar" parent="Bilboards" unique_id=1619630166 instance=ExtResource("5_nh7xm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.915346, 0.12619984, -17.527733)
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubC/Sub/Complete" unique_id=322526696]
+attenuation_model = 3
+volume_db = -1.0
+pitch_scale = 0.8
 
-[node name="Lectern" parent="Bilboards" unique_id=1451573234 instance=ExtResource("6_j0k67")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 26.662466, 0.09279728, 16.65706)
+[node name="ColorRect" type="ColorRect" parent="SubC/Sub/Complete" unique_id=1597923224]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
-[node name="Klupa" parent="Bilboards" unique_id=95247510 instance=ExtResource("7_5r5j8")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 19.093264, 0.06003201, -13.802639)
-
-[node name="Klupa2" parent="Bilboards" unique_id=890893557 instance=ExtResource("7_5r5j8")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 25.020107, 0.06003201, -13.802639)
-
-[node name="Klupa3" parent="Bilboards" unique_id=208364572 instance=ExtResource("7_5r5j8")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 13.095011, 0.06003201, -13.802639)
-
-[node name="Klupa4" parent="Bilboards" unique_id=1735484843 instance=ExtResource("7_5r5j8")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 19.093264, 0.06003201, -7.6874866)
-
-[node name="Klupa5" parent="Bilboards" unique_id=498738761 instance=ExtResource("7_5r5j8")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 25.020107, 0.06003201, -7.6874866)
-
-[node name="Klupa6" parent="Bilboards" unique_id=1235665410 instance=ExtResource("7_5r5j8")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 13.095011, 0.06003201, -7.6874866)
-
-[node name="Klupa7" parent="Bilboards" unique_id=1637877561 instance=ExtResource("7_5r5j8")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 19.093264, 0.06003201, -2.653091)
-
-[node name="Klupa8" parent="Bilboards" unique_id=331878716 instance=ExtResource("7_5r5j8")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 25.020107, 0.06003201, -2.653091)
-
-[node name="Klupa9" parent="Bilboards" unique_id=438473220 instance=ExtResource("7_5r5j8")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 13.095011, 0.06003201, -2.653091)
-
-[node name="Armour stand" parent="Bilboards" unique_id=259730674 instance=ExtResource("8_akpl7")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 10.96826, 0.12135029, 8.93436)
-
-[node name="Lectern2" parent="Bilboards" unique_id=295931187 instance=ExtResource("6_j0k67")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 5.0219088, 0.09279728, 21.175253)
-
-[node name="Lectern3" parent="Bilboards" unique_id=232641589 instance=ExtResource("6_j0k67")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 7.924857, 0.09279728, 21.370699)
-
-[node name="Lectern4" parent="Bilboards" unique_id=97209694 instance=ExtResource("6_j0k67")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 10.897852, 0.09279728, 21.291134)
-
-[node name="Cage2" parent="Bilboards" unique_id=744206359 instance=ExtResource("4_nw7js")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.773395, 0.14276505, 32.121292)
-
-[node name="Armour stand2" parent="Bilboards" unique_id=1392311569 instance=ExtResource("8_akpl7")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 18.783737, 0.12135029, 32.892757)
-
-[node name="Altar2" parent="Bilboards" unique_id=791495077 instance=ExtResource("5_nh7xm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.882004, 0.12619984, 21.304081)
-
-[node name="8Candles" parent="Bilboards" unique_id=1675638654 instance=ExtResource("9_aur7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.502464, 0.08769366, 23.01565)
-
-[node name="8Candles2" parent="Bilboards" unique_id=304482449 instance=ExtResource("9_aur7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.672268, 0.10606703, 4.294382)
-
-[node name="Cage3" parent="Bilboards" unique_id=1006605849 instance=ExtResource("4_nw7js")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.165738, 0.14276505, 6.111414)
-
-[node name="Cage4" parent="Bilboards" unique_id=2112892065 instance=ExtResource("4_nw7js")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 46.805557, 0.14276505, 4.521658)
-
-[node name="Armour stand3" parent="Bilboards" unique_id=1982089493 instance=ExtResource("8_akpl7")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 46.38093, 0.12135029, 23.257326)
-
-[node name="Altar3" parent="Bilboards" unique_id=1681157174 instance=ExtResource("5_nh7xm")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 35.54107, -0.080551505, -1.0187619)
-
-[node name="Cage5" parent="Bilboards" unique_id=1977795025 instance=ExtResource("4_nw7js")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 56.57308, 0.14276505, 30.740856)
-
-[node name="Lectern5" parent="Bilboards" unique_id=1216200605 instance=ExtResource("6_j0k67")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 56.94683, 0.09279728, 9.015631)
-
-[node name="Lectern6" parent="Bilboards" unique_id=39481621 instance=ExtResource("6_j0k67")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 56.899097, 0.09279728, 10.91073)
-
-[node name="Lectern7" parent="Bilboards" unique_id=344960866 instance=ExtResource("6_j0k67")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 56.8944, 0.09279728, 12.851983)
+[connection signal="timeout" from="SubC/Sub/Objective/Timer" to="SubC/Sub/Objective" method="_on_timer_timeout"]

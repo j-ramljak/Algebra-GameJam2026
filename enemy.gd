@@ -87,4 +87,8 @@ func lose_hp() -> void:
 		$Visuals/MeshInstance3D.hide()
 		$Visuals/Sprite3D.hide()
 		dead = true
+		$Death/GPUParticles3D.emitting = true
+		$Death/GPUParticles3D2.emitting = true
+		await get_tree().create_timer(4).timeout
+		queue_free()
 		

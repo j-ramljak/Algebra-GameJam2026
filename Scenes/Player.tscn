@@ -8,6 +8,11 @@
 [ext_resource type="AudioStream" uid="uid://c1v1bjst284ei" path="res://SFX/Shell.wav" id="4_52ee3"]
 [ext_resource type="Script" uid="uid://c78e2bdqj687y" path="res://Scenes/footstep_timer.gd" id="5_nn08x"]
 [ext_resource type="AudioStream" uid="uid://dxd3wkb50j3ib" path="res://SFX/FootstepsConcrete1.wav" id="6_52ee3"]
+[ext_resource type="Texture2D" uid="uid://642rrmrhg17k" path="res://Textures/gun-sheet.png" id="6_megsn"]
+[ext_resource type="Texture2D" uid="uid://blli2t8r0rtv6" path="res://Textures/Health_bar_over.png" id="10_ksbbd"]
+[ext_resource type="Texture2D" uid="uid://87ub6hsk6sls" path="res://Textures/Health_bar_top.png" id="11_glx4g"]
+[ext_resource type="Script" uid="uid://bg3ooe52uyton" path="res://Scenes/DEATH.gd" id="12_glx4g"]
+[ext_resource type="Texture2D" uid="uid://tn8ippcnsoek" path="res://Textures/fail.png" id="13_miouo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_npdc1"]
 radius = 0.3
@@ -16,6 +21,49 @@ height = 3.5
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1twwi"]
 radius = 0.3
 height = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoq75"]
+atlas = ExtResource("6_megsn")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksbbd"]
+atlas = ExtResource("6_megsn")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glx4g"]
+atlas = ExtResource("6_megsn")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miouo"]
+atlas = ExtResource("6_megsn")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3h8g"]
+atlas = ExtResource("6_megsn")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1e7my"]
+animations = [{
+"frames": [{
+"duration": 0.01,
+"texture": SubResource("AtlasTexture_yoq75")
+}, {
+"duration": 0.01,
+"texture": SubResource("AtlasTexture_ksbbd")
+}, {
+"duration": 0.01,
+"texture": SubResource("AtlasTexture_glx4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miouo")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_o3h8g")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 6.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_dewec"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -38,6 +86,193 @@ metadata/_snap_enabled = true
 metadata/_snap_count = 2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bhhdu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_miouo"]
+blend_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_o3h8g"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1e7my"]
+gradient = SubResource("Gradient_o3h8g")
+
+[sub_resource type="Animation" id="Animation_glx4g"]
+resource_name = "Death"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Death/GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Death/Gradient:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Death/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(0.9529412, 0.3019608, 0.39607844, 0), Color(0.9518381, 0.30061045, 0.39757565, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Death/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Death/AudioStreamPlayer3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/4/use_blend = true
+
+[sub_resource type="Animation" id="Animation_miouo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Death/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Death/GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Death/Gradient:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Death/Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_miouo"]
+_data = {
+&"Death": SubResource("Animation_glx4g"),
+&"RESET": SubResource("Animation_miouo")
+}
+
+[sub_resource type="Gradient" id="Gradient_1e7my"]
+offsets = PackedFloat32Array(0.57831323, 1)
+colors = PackedColorArray(0.6313954, 0.034663912, 0.06363811, 1, 0.6313726, 0.03529412, 0.0627451, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_arntx"]
+gradient = SubResource("Gradient_1e7my")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="Curve" id="Curve_lslt6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.07432434, 1), 0.0, 0.0, 0, 0, Vector2(0.7972973, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ulo2v"]
+curve = SubResource("Curve_lslt6")
+
+[sub_resource type="Gradient" id="Gradient_1iu4k"]
+offsets = PackedFloat32Array(0.78688526, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m0x7a"]
+gradient = SubResource("Gradient_1iu4k")
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_5v66d"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x63xi"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_5v66d")
+gravity = Vector3(0, 0, 0)
+damping_min = 200.00002
+damping_max = 500.00003
+color_ramp = SubResource("GradientTexture1D_m0x7a")
+alpha_curve = SubResource("CurveTexture_ulo2v")
+hue_variation_min = -0.050000023
+hue_variation_max = 0.029999977
+
+[sub_resource type="Gradient" id="Gradient_i2e8t"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.38554215, 0.92771083)
+colors = PackedColorArray(0.6583075, 0.026291989, 0.10266187, 0.8156863, 0.65882355, 0.02745098, 0.101960786, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qidb7"]
+gradient = SubResource("Gradient_i2e8t")
+width = 400
+height = 400
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
 
 [node name="Player" type="CharacterBody3D" unique_id=240721311 groups=["Player"]]
 script = ExtResource("1_3hthm")
@@ -153,6 +388,14 @@ omni_attenuation = 0.8
 [node name="Flash_timer" type="Timer" parent="Pistol_stuff" unique_id=1692923559]
 wait_time = 0.05
 
+[node name="GunAnim" type="AnimatedSprite2D" parent="Pistol_stuff" unique_id=1718061666]
+texture_filter = 1
+position = Vector2(1414, 431)
+scale = Vector2(6.1289067, 6.1289067)
+sprite_frames = SubResource("SpriteFrames_1e7my")
+animation = &"shoot"
+frame = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1078623462]
 layer = -1
 
@@ -216,6 +459,97 @@ collision_mask = 18
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ActionableFinder" unique_id=523494582]
 shape = SubResource("CylinderShape3D_bhhdu")
 
+[node name="Health" type="Node3D" parent="." unique_id=1151906130]
+
+[node name="Panel" type="Panel" parent="Health" unique_id=881037531]
+offset_left = 67.0
+offset_top = 893.0
+offset_right = 550.105
+offset_bottom = 1002.78
+
+[node name="Sprite2D" type="Sprite2D" parent="Health" unique_id=546240410]
+position = Vector2(308, 947.00006)
+scale = Vector2(3.85, 3.85)
+texture = ExtResource("10_ksbbd")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Health" unique_id=587747365]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Health/CanvasGroup" unique_id=2047816339]
+texture_filter = 1
+position = Vector2(309, 945.99994)
+scale = Vector2(3.85, 3.85)
+texture = ExtResource("11_glx4g")
+
+[node name="Third" type="Sprite2D" parent="Health/CanvasGroup" unique_id=1498188094]
+visible = false
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_miouo")
+position = Vector2(469, 946)
+scale = Vector2(2.015, 1.425)
+texture = SubResource("GradientTexture2D_1e7my")
+
+[node name="Second" type="Sprite2D" parent="Health/CanvasGroup" unique_id=1187873653]
+visible = false
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_miouo")
+position = Vector2(312.00003, 946)
+scale = Vector2(2.015, 1.425)
+texture = SubResource("GradientTexture2D_1e7my")
+
+[node name="First" type="Sprite2D" parent="Health/CanvasGroup" unique_id=795474266]
+visible = false
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_miouo")
+position = Vector2(152, 946)
+scale = Vector2(2.015, 1.425)
+texture = SubResource("GradientTexture2D_1e7my")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Health" unique_id=1253651146]
+libraries/ = SubResource("AnimationLibrary_miouo")
+speed_scale = 0.9
+script = ExtResource("12_glx4g")
+
+[node name="Death" type="Node3D" parent="Health" unique_id=1773295700]
+
+[node name="ColorRect" type="ColorRect" parent="Health/Death" unique_id=1578287915]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Health/Death" unique_id=2045190048]
+position = Vector2(960, 540)
+emitting = false
+amount = 1000
+texture = SubResource("GradientTexture2D_arntx")
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_x63xi")
+
+[node name="Gradient" type="Sprite2D" parent="Health/Death" unique_id=933387315]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(4.235, 1)
+texture = SubResource("GradientTexture2D_qidb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Health/Death" unique_id=2063322491]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("13_miouo")
+offset = Vector2(960, 540)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Health/Death" unique_id=851689209]
+attenuation_model = 3
+volume_db = -1.0
+pitch_scale = 0.8
+
+[node name="HurtTimer" type="Timer" parent="." unique_id=507747256]
+
 [connection signal="timeout" from="Pistol_stuff/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Pistol_stuff/Flash_timer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="FootStepTimer" to="FootStepTimer" method="_on_timeout"]
+[connection signal="animation_started" from="Health/AnimationPlayer" to="Health/AnimationPlayer" method="_on_animation_started"]
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
