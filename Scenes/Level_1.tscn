@@ -27,8 +27,8 @@ sky = ExtResource("11_2jeek")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0203
-volumetric_fog_emission = Color(1, 1, 1, 1)
+volumetric_fog_density = 0.04
+volumetric_fog_emission = Color(0.9999998, 0.9528349, 0.6436187, 1)
 volumetric_fog_length = 100.0
 volumetric_fog_sky_affect = 0.701
 

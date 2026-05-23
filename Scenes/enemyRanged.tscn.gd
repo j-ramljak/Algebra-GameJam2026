@@ -26,7 +26,9 @@ var chasing = false
 
 @onready var eyes: Node3D = $Eyes
 
+var dead = false
 
+var HP = 1
 
 func _ready() -> void:
 	player = get_node(player_path)
@@ -125,3 +127,20 @@ func _on_chase_area_exited(area: Area3D) -> void:
 	agrro = false
 	animS.play("Walk")
 	#attacking = false
+
+
+func lose_hp() -> void:
+	HP -= 1
+	if HP < 1:
+		$CollisionShape3D.disabled = true
+		$agrro/CollisionShape3D.disabled	= true
+		$lose_agrro/CollisionShape3D.disabled = true
+		$chase/CollisionShape3D.disabled = true
+		var tween = get_tree().create_tween()
+		$Visuals/MeshInstance3D.hide()
+		$Visuals/Sprite3D.hide()
+		dead = true
+		$Death/GPUParticles3D.emitting = true
+		$Death/GPUParticles3D2.emitting = true
+		await get_tree().create_timer(4).timeout
+		queue_free()

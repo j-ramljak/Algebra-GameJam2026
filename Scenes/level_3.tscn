@@ -33,8 +33,8 @@ sky = ExtResource("2_kgmqw")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0203
-volumetric_fog_emission = Color(1, 1, 1, 1)
+volumetric_fog_density = 0.0725
+volumetric_fog_emission = Color(0.46080542, 0.6625967, 1, 1)
 volumetric_fog_length = 100.0
 volumetric_fog_sky_affect = 0.701
 
@@ -320,10 +320,6 @@ player_path = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.49246, 1.3439709, -68.63486)
 player_path = NodePath("../../Player")
 
-[node name="Enemy22" parent="SubC/Sub/Enemies" unique_id=1987479403 instance=ExtResource("3_s80er")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.352859, 1.3439709, -72.173874)
-player_path = NodePath("../../Player")
-
 [node name="Enemy25" parent="SubC/Sub/Enemies" unique_id=115851522 instance=ExtResource("3_s80er")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.328641, 1.3439709, -58.789124)
 player_path = NodePath("../../Player")
@@ -334,10 +330,6 @@ player_path = NodePath("../../Player")
 
 [node name="Enemy26" parent="SubC/Sub/Enemies" unique_id=1991642120 instance=ExtResource("3_s80er")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6466427, 1.3439709, -69.40038)
-player_path = NodePath("../../Player")
-
-[node name="Enemy23" parent="SubC/Sub/Enemies" unique_id=1596545579 instance=ExtResource("3_s80er")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8760023, 1.3439709, -78.7565)
 player_path = NodePath("../../Player")
 
 [node name="Enemy24" parent="SubC/Sub/Enemies" unique_id=1265705001 instance=ExtResource("3_s80er")]
@@ -413,7 +405,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.419616, 1.25, -58.91867)
 player_path = NodePath("../../Player")
 
 [node name="enemyRanged8" parent="SubC/Sub/Enemies" unique_id=218351514 instance=ExtResource("5_nrv0r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.699355, 1.25, -70.82182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2935214, 1.25, -70.82182)
 player_path = NodePath("../../Player")
 
 [node name="Player" parent="SubC/Sub" unique_id=240721311 instance=ExtResource("2_s8nj6")]
