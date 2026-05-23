@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dvv43xh5x5m5v"]
+[gd_scene format=3 uid="uid://bswjj38iav8pi"]
 
 [ext_resource type="Script" uid="uid://n1mijlccuwxg" path="res://Scenes/enemyRanged.tscn.gd" id="1_sf8ly"]
 [ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_kk8la"]
