@@ -2,12 +2,12 @@ extends CharacterBody3D
 
 var player = null
 
-const SPEED = 4.0
+const SPEED = 6
 const ATTACK_RANGE = 2.5
 
 var dead = false
 
-var HP = 2
+var HP = 1
 
 @export var player_path :NodePath
 
@@ -90,6 +90,10 @@ func _on_lose_agrro_area_exited(area: Area3D) -> void:
 func lose_hp() -> void:
 	HP -= 1
 	if HP < 1:
+		$CollisionShape3D.disabled = true
+		$Area3D/CollisionShape3D.disabled = true
+		$agrro/CollisionShape3D.disabled = true
+		$lose_agrro/CollisionShape3D.disabled = true
 		var tween = get_tree().create_tween()
 		$Visuals/MeshInstance3D.hide()
 		$Visuals/Sprite3D.hide()

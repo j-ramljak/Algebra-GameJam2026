@@ -28,8 +28,9 @@ sky = ExtResource("2_i6dbo")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0203
-volumetric_fog_emission = Color(1, 1, 1, 1)
+volumetric_fog_density = 0.04
+volumetric_fog_albedo = Color(0.7158079, 0.99899346, 0.70052606, 1)
+volumetric_fog_emission = Color(9.62615e-07, 0.9685767, 0.6193621, 1)
 volumetric_fog_length = 100.0
 volumetric_fog_sky_affect = 0.701
 
