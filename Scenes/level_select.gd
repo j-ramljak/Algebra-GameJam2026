@@ -9,6 +9,7 @@ extends Control
 
 
 func _ready():
+	$Ambience.play()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Global.last_level_pased == -1:
 		level_1.been_pressed = true

@@ -90,6 +90,7 @@ func _on_lose_agrro_area_exited(area: Area3D) -> void:
 func lose_hp() -> void:
 	HP -= 1
 	if HP < 1:
+		$DeathSound.play()
 		var tween = get_tree().create_tween()
 		$Visuals/MeshInstance3D.hide()
 		$Visuals/Sprite3D.hide()

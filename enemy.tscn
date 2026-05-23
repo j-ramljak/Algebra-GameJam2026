@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_4gyqm"]
 [ext_resource type="AudioStream" uid="uid://c1i1jou80fdbi" path="res://SFX/ThereHeIs2.wav" id="3_qi2p4"]
 [ext_resource type="Texture2D" uid="uid://mmc7xs58xqai" path="res://Textures/characterV2-export.png" id="4_iifgy"]
+[ext_resource type="AudioStream" uid="uid://b68my8vrq1tpx" path="res://SFX/DeathSFX.wav" id="5_epg4t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4gyqm"]
 radius = 0.3
@@ -335,6 +336,9 @@ lifetime = 2.0
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_n0g06")
 draw_pass_1 = SubResource("PlaneMesh_nnovl")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=66038128]
+stream = ExtResource("5_epg4t")
 
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
