@@ -2,12 +2,7 @@
 
 [ext_resource type="Script" uid="uid://n1mijlccuwxg" path="res://Scenes/enemyRanged.tscn.gd" id="1_sf8ly"]
 [ext_resource type="Texture2D" uid="uid://b5ob4e4gyoosf" path="res://Textures/Borna.jpg" id="2_kk8la"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_7k104"]
-height = 2.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf8ly"]
-albedo_color = Color(0.45604372, 0.56687784, 0.76649654, 1)
+[ext_resource type="AudioStream" uid="uid://c1i1jou80fdbi" path="res://SFX/ThereHeIs2.wav" id="3_kk8la"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4gyqm"]
 height = 2.5
@@ -24,21 +19,172 @@ radius = 21.0
 height = 0.7
 radius = 18.0
 
-[node name="enemyRanged" type="CharacterBody3D" unique_id=439418596]
+[sub_resource type="Curve" id="Curve_kk8la"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1418919, 1), 0.0, 0.0, 0, 0, Vector2(0.7972973, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_qi2p4"]
+curve = SubResource("Curve_kk8la")
+
+[sub_resource type="Curve" id="Curve_i4llj"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_epg4t"]
+curve = SubResource("Curve_i4llj")
+
+[sub_resource type="Curve" id="Curve_easwj"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_n0g06"]
+curve = SubResource("Curve_easwj")
+
+[sub_resource type="Curve" id="Curve_bo66h"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_doop2"]
+curve = SubResource("Curve_bo66h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tw084"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 90, 1)
+emission_ring_height = 0.1
+emission_ring_radius = 0.8
+emission_ring_inner_radius = 0.9
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+angular_velocity_curve = SubResource("CurveTexture_epg4t")
+orbit_velocity_curve = SubResource("CurveTexture_n0g06")
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_curve = SubResource("CurveTexture_doop2")
+alpha_curve = SubResource("CurveTexture_qi2p4")
+
+[sub_resource type="Gradient" id="Gradient_hb8ge"]
+offsets = PackedFloat32Array(0.9126984, 1)
+colors = PackedColorArray(0.32477808, 0.21159896, 0.47916448, 1, 0.3254902, 0.21176471, 0.47843137, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5guf0"]
+gradient = SubResource("Gradient_hb8ge")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxifv"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_5guf0")
+texture_filter = 0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x2e2k"]
+material = SubResource("StandardMaterial3D_dxifv")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e1ltt"]
+curve = SubResource("Curve_kk8la")
+
+[sub_resource type="Curve" id="Curve_qnqa2"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hb8ge"]
+curve = SubResource("Curve_qnqa2")
+
+[sub_resource type="Curve" id="Curve_nvk31"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_dxifv"]
+curve = SubResource("Curve_nvk31")
+
+[sub_resource type="Curve" id="Curve_pkiki"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pwjut"]
+curve = SubResource("Curve_pkiki")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xn8qf"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 90, 1)
+emission_ring_height = 0.1
+emission_ring_radius = 0.1
+emission_ring_inner_radius = 0.2
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_curve = SubResource("CurveTexture_hb8ge")
+orbit_velocity_curve = SubResource("CurveTexture_dxifv")
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_curve = SubResource("CurveTexture_pwjut")
+attractor_interaction_enabled = false
+alpha_curve = SubResource("CurveTexture_e1ltt")
+
+[sub_resource type="Gradient" id="Gradient_ar8e5"]
+offsets = PackedFloat32Array(0.9126984, 1)
+colors = PackedColorArray(0.32477808, 0.21159896, 0.47916448, 1, 0.3254902, 0.21176471, 0.47843137, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g1xih"]
+gradient = SubResource("Gradient_ar8e5")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hcft"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_g1xih")
+texture_filter = 0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0vr7s"]
+material = SubResource("StandardMaterial3D_5hcft")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7k104"]
+height = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf8ly"]
+albedo_color = Color(0.45604372, 0.56687784, 0.76649654, 1)
+
+[node name="enemyRanged" type="CharacterBody3D" unique_id=439418596 groups=["Enemy"]]
 script = ExtResource("1_sf8ly")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=646395076]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=612493021]
-mesh = SubResource("CapsuleMesh_7k104")
-surface_material_override/0 = SubResource("StandardMaterial3D_sf8ly")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=507413084]
 shape = SubResource("CapsuleShape3D_4gyqm")
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=105538703]
-transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 1.1924655, -0.46582514)
-texture = ExtResource("2_kk8la")
 
 [node name="Timer" type="Timer" parent="." unique_id=148765915]
 wait_time = 1.5
@@ -74,6 +220,45 @@ texture = ExtResource("2_kk8la")
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1489245101]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.805, 0)
 target_position = Vector3(0, 0, -20.425)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=897987512]
+stream = ExtResource("3_kk8la")
+
+[node name="Death" type="Node3D" parent="." unique_id=1418021248]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Death" unique_id=843233377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8658823, 0)
+emitting = false
+amount = 500
+lifetime = 0.7
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_tw084")
+draw_pass_1 = SubResource("PlaneMesh_x2e2k")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="Death" unique_id=1306691761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7082256, 0)
+strength = 15.0
+cull_mask = 4294966273
+radius = 1.3
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Death" unique_id=1382708728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8658823, 0)
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_xn8qf")
+draw_pass_1 = SubResource("PlaneMesh_0vr7s")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=758041218]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals" unique_id=612493021]
+mesh = SubResource("CapsuleMesh_7k104")
+surface_material_override/0 = SubResource("StandardMaterial3D_sf8ly")
+
+[node name="Sprite3D" type="Sprite3D" parent="Visuals" unique_id=105538703]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, 1.1924655, -0.46582514)
+texture = ExtResource("2_kk8la")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="agrro" to="." method="_on_agrro_area_entered"]

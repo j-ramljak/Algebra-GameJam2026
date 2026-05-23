@@ -5,14 +5,20 @@ func _enter_tree() -> void:
 	#set_multiplayer_authority(name.to_int())
 	#print(get_multiplayer_authority())
 
-const SPEED = 5.0
+var SPEED = 5.0
 const SENSITIVITY = 0.005
 #const JUMP_VELOCITY = 4.5
 const BOBF = 2.5
 const BOBA = 0.08
 var t_bob = 0.0
+var t_bob_g = 0.0
 var CamH = Vector3(0,0.697,0)
+var GunH = Vector2(1414.0,431.0)
 
+var HP = 3
+
+var canBeHurt = true
+@onready var hurt_timer: Timer = $HurtTimer
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -24,6 +30,8 @@ var CamH = Vector3(0,0.697,0)
 @onready var actionable_finder: Area3D = $ActionableFinder
 
 @onready var hurt: Sprite2D = $CanvasLayer/Hurt
+
+@onready var gun_anim: AnimatedSprite2D = $Pistol_stuff/GunAnim
 
 
 #@onready var MainMenu = preload("res://Scripts/main_menu.gd")
@@ -57,6 +65,9 @@ var paused = false
 
 func _ready():
 	FlashShader.hide();
+	
+	if !canShoot:
+		$Pistol_stuff/GunAnim.hide()
 	
 	FootLickTimer.stop()
 	
@@ -142,7 +153,13 @@ func _physics_process(delta: float) -> void:
 			pause_menu.show()
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		paused = !paused
-		
+	
+	if Input.is_action_pressed("Run"):
+		SPEED=10.0
+		FootLickTimer.wait_time = 0.45
+	else:
+		SPEED=5.0
+		FootLickTimer.wait_time = 0.9
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -166,6 +183,7 @@ func _physics_process(delta: float) -> void:
 		if Input.get_vector("Left", "Right", "Forward", "Backwards") == Vector2.ZERO:
 			#camera.transform.origin = lerp(camera.transform.origin, Vector3.ZERO, 0.1)
 			camera.transform.origin = lerp(camera.transform.origin, CamH, 0.1)
+			$Pistol_stuff/GunAnim.transform.origin = lerp($Pistol_stuff/GunAnim.transform.origin, GunH, 0.1)
 			FootLickTimer.stop()
 		elif vel > 1:
 			if FootLickTimer.is_stopped():
@@ -173,6 +191,17 @@ func _physics_process(delta: float) -> void:
 			
 			t_bob += delta * velocity.length()
 			camera.transform.origin = _headbob(t_bob)
+			
+			#Gun BOB
+			t_bob_g += delta * velocity.length()
+			
+			
+			var pos = Vector2.ZERO
+			pos.y = sin(t_bob_g * BOBF) * BOBA*500
+			pos = lerp($Pistol_stuff/GunAnim.transform.origin, pos+GunH, 0.1)
+			#pos.x = cos(time * BOBF/2) * BOBA
+			$Pistol_stuff/GunAnim.transform.origin = pos
+			
 		
 		
 		if Input.is_action_just_pressed("Fire"):
@@ -193,6 +222,7 @@ func _headbob(time) -> Vector3:
 func fire_gun():
 	#if Input.is_action_just_pressed("Fire") and PlayerSingletons.playerClass == "Gunslinger":
 	if canShoot:
+		gun_anim.play("shoot")
 		$Pistol_stuff/Gunshot.play()
 		canShoot = false
 		$Pistol_stuff/Timer.start()
@@ -229,8 +259,14 @@ func fire_gun():
 		randomize()
 		bc.rotate(ray_pistol.get_collision_normal(),randf_range(0, 2*PI) )
 		$Pistol_stuff/Gunshot.pitch_scale = randf_range(0.9,1.1)
+		var col = $Head/Camera3D/RayContainer/RayCast3D.get_collider()
+		if $Head/Camera3D/RayContainer/RayCast3D.get_collider() != null:
+			if col.is_in_group("Enemy"):
+				col.lose_hp()
 		#$Pistol_stuff/AudioStreamPlayer3D.play()
-		
+		await get_tree().create_timer(0.25).timeout
+		gun_anim.stop()
+		gun_anim.frame = 0
 		#$Shotgun_stuff/Flash.hide()
 
 
@@ -254,7 +290,29 @@ func _on_flash_timer_timeout() -> void:
 
 
 func hit(dir) -> void:
-	hurt.modulate = Color(255.014, 255.014, 255.014, 1.0)
-	var tween = get_tree().create_tween()
-	tween.tween_property($CanvasLayer/Hurt,"modulate",Color(255, 255, 255, 0.0),0.5)
-	velocity += Vector3(dir.x*10.0,0.5,dir.z*10.0)
+	if canBeHurt:
+		hurt.modulate = Color(255.014, 255.014, 255.014, 1.0)
+		var tween = get_tree().create_tween()
+		tween.tween_property($CanvasLayer/Hurt,"modulate",Color(255, 255, 255, 0.0),0.5)
+		velocity += Vector3(dir.x*10.0,0.5,dir.z*10.0)
+		HP -= 1
+		update_hp()
+		$HurtTimer.start()
+		canBeHurt=false
+
+
+func update_hp() -> void:
+	match HP:
+		2:
+			$Health/CanvasGroup/Third.show()
+		1:
+			$Health/CanvasGroup/Second.show()
+		_:
+			$Health/CanvasGroup/First.show()
+			$Health/AnimationPlayer.play("Death")
+			await get_tree().create_timer(4).timeout
+			get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
+
+
+func _on_hurt_timer_timeout() -> void:
+	canBeHurt = true
