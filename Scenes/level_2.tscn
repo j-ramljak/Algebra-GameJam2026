@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://0l7g84621bsr" path="res://Scenes/3Dsprites/altar.tscn" id="4_42uki"]
 [ext_resource type="FontFile" uid="uid://baye4ng0ne0ls" path="res://Fonts/SalemwitchtrialRegular-OGeg4.otf" id="4_ijtdf"]
 [ext_resource type="Script" uid="uid://cgbh7plmyw114" path="res://Scenes/end.gd" id="5_c5xoi"]
+[ext_resource type="PackedScene" uid="uid://dvv43xh5x5m5v" path="res://Scenes/enemyRanged.tscn" id="5_e2piv"]
 [ext_resource type="PackedScene" uid="uid://b6oejafatkeht" path="res://Scenes/3Dsprites/klupa.tscn" id="5_t7v2y"]
 [ext_resource type="PackedScene" uid="uid://bwy4gbnvurlpa" path="res://Scenes/3Dsprites/8_candles.tscn" id="6_ait6c"]
 [ext_resource type="AudioStream" uid="uid://iektclks62na" path="res://SFX/shing.wav" id="6_sfey3"]
@@ -253,8 +254,52 @@ environment = SubResource("Environment_d42f2")
 
 [node name="Enemies" type="Node3D" parent="SubC/Sub" unique_id=1150762183]
 
-[node name="Enemy" parent="SubC/Sub/Enemies" unique_id=439418596 instance=ExtResource("8_5jii6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.108429, 1.3732011, -22.575895)
+[node name="Enemy2" parent="SubC/Sub/Enemies" unique_id=752623069 instance=ExtResource("8_5jii6")]
+transform = Transform3D(0.5088311, 0, -0.86086637, 0, 1, 0, 0.86086637, 0, 0.5088311, 7.9120054, 1.3732011, -18.951223)
+player_path = NodePath("../../Player")
+
+[node name="Enemy3" parent="SubC/Sub/Enemies" unique_id=1661982696 instance=ExtResource("8_5jii6")]
+transform = Transform3D(0.5088311, 0, -0.86086637, 0, 1, 0, 0.86086637, 0, 0.5088311, -7.8893547, 1.3732011, -22.569582)
+player_path = NodePath("../../Player")
+
+[node name="Enemy6" parent="SubC/Sub/Enemies" unique_id=439418596 instance=ExtResource("8_5jii6")]
+transform = Transform3D(0.5088311, 0, -0.86086637, 0, 1, 0, 0.86086637, 0, 0.5088311, -7.8893547, 1.3732011, -41.571533)
+player_path = NodePath("../../Player")
+
+[node name="Enemy7" parent="SubC/Sub/Enemies" unique_id=1231707208 instance=ExtResource("8_5jii6")]
+transform = Transform3D(0.5088311, 0, -0.86086637, 0, 1, 0, 0.86086637, 0, 0.5088311, -15.430828, 1.3732011, -45.995148)
+player_path = NodePath("../../Player")
+
+[node name="Enemy4" parent="SubC/Sub/Enemies" unique_id=1744352700 instance=ExtResource("8_5jii6")]
+transform = Transform3D(0.5088311, 0, -0.86086637, 0, 1, 0, 0.86086637, 0, 0.5088311, -26.696762, 1.3732011, -22.569582)
+player_path = NodePath("../../Player")
+
+[node name="Enemy5" parent="SubC/Sub/Enemies" unique_id=1611162348 instance=ExtResource("8_5jii6")]
+transform = Transform3D(0.5088311, 0, -0.86086637, 0, 1, 0, 0.86086637, 0, 0.5088311, 25.230639, 1.3732011, -17.249737)
+player_path = NodePath("../../Player")
+
+[node name="Enemy8" parent="SubC/Sub/Enemies" unique_id=1796254475 instance=ExtResource("8_5jii6")]
+transform = Transform3D(0.5088311, 0, -0.86086637, 0, 1, 0, 0.86086637, 0, 0.5088311, 14.895171, 1.3732011, -65.47638)
+player_path = NodePath("../../Player")
+
+[node name="Enemy9" parent="SubC/Sub/Enemies" unique_id=1623341130 instance=ExtResource("8_5jii6")]
+transform = Transform3D(0.5088311, 0, -0.86086637, 0, 1, 0, 0.86086637, 0, 0.5088311, 1.9119253, 1.3732011, -59.106)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged" parent="SubC/Sub/Enemies" unique_id=287384180 instance=ExtResource("5_e2piv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4675262, 1.2948554, -27.91142)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged3" parent="SubC/Sub/Enemies" unique_id=677097331 instance=ExtResource("5_e2piv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7909427, 1.2948554, -60.76161)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged4" parent="SubC/Sub/Enemies" unique_id=222031349 instance=ExtResource("5_e2piv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.352621, 1.2948554, -68.95682)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged2" parent="SubC/Sub/Enemies" unique_id=1736728356 instance=ExtResource("5_e2piv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.691695, 1.2948554, -49.04574)
 player_path = NodePath("../../Player")
 
 [node name="Player" parent="SubC/Sub" unique_id=240721311 instance=ExtResource("2_1q6tm")]

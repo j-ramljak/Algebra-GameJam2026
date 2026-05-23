@@ -454,4 +454,40 @@ transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 56.8944, 0.09279728, 12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.86644, 1.3732011, 0)
 player_path = NodePath("../../Player")
 
+[node name="Enemy5" parent="SubC/Sub/Enemies" unique_id=2034355428 instance=ExtResource("17_m620h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.185684, 1.3732011, 18.46719)
+player_path = NodePath("../../Player")
+
+[node name="Enemy6" parent="SubC/Sub/Enemies" unique_id=885227522 instance=ExtResource("17_m620h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.781815, 1.3732011, 24.302223)
+player_path = NodePath("../../Player")
+
+[node name="Enemy7" parent="SubC/Sub/Enemies" unique_id=212805904 instance=ExtResource("17_m620h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.91086, 1.3732011, 29.96119)
+player_path = NodePath("../../Player")
+
+[node name="Enemy9" parent="SubC/Sub/Enemies" unique_id=1735319984 instance=ExtResource("17_m620h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.105255, 1.3732011, 29.96119)
+player_path = NodePath("../../Player")
+
+[node name="Enemy10" parent="SubC/Sub/Enemies" unique_id=1883079902 instance=ExtResource("17_m620h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.047962, 1.3732011, 25.297745)
+player_path = NodePath("../../Player")
+
+[node name="Enemy11" parent="SubC/Sub/Enemies" unique_id=2007042541 instance=ExtResource("17_m620h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3446217, 1.3732011, 26.855652)
+player_path = NodePath("../../Player")
+
+[node name="Enemy8" parent="SubC/Sub/Enemies" unique_id=111936639 instance=ExtResource("17_m620h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.69438, 1.3732011, 29.96119)
+player_path = NodePath("../../Player")
+
+[node name="Enemy2" parent="SubC/Sub/Enemies" unique_id=1671529456 instance=ExtResource("17_m620h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.338333, 1.3732011, 0)
+player_path = NodePath("../../Player")
+
+[node name="Enemy3" parent="SubC/Sub/Enemies" unique_id=1304294235 instance=ExtResource("17_m620h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.73003, 1.3732011, 12.966693)
+player_path = NodePath("../../Player")
+
 [connection signal="timeout" from="SubC/Sub/Objective/Timer" to="SubC/Sub/Objective" method="_on_timer_timeout"]

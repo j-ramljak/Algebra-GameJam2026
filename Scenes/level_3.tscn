@@ -9,19 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://bq8of3oh7nvnc" path="res://Scenes/pause_menu.tscn" id="3_vwg62"]
 [ext_resource type="PackedScene" uid="uid://ds8ota21ji0m3" path="res://Scenes/3Dsprites/armour_stand.tscn" id="4_s8nj6"]
 [ext_resource type="PackedScene" uid="uid://0l7g84621bsr" path="res://Scenes/3Dsprites/altar.tscn" id="5_5rvg2"]
-[ext_resource type="Script" path="res://Scenes/objective.gd" id="6_8jhox"]
+[ext_resource type="PackedScene" uid="uid://dvv43xh5x5m5v" path="res://Scenes/enemyRanged.tscn" id="5_nrv0r"]
+[ext_resource type="Script" uid="uid://c6lnvnvv462ul" path="res://Scenes/objective.gd" id="6_8jhox"]
 [ext_resource type="PackedScene" uid="uid://b6oejafatkeht" path="res://Scenes/3Dsprites/klupa.tscn" id="6_jtv8s"]
 [ext_resource type="PackedScene" uid="uid://b5mymff62o3ii" path="res://Scenes/3Dsprites/candles.tscn" id="7_c81s1"]
 [ext_resource type="FontFile" uid="uid://baye4ng0ne0ls" path="res://Fonts/SalemwitchtrialRegular-OGeg4.otf" id="7_hed5s"]
 [ext_resource type="PackedScene" uid="uid://fn31gu5oji66" path="res://Scenes/3Dsprites/lectern.tscn" id="8_n4vm5"]
-[ext_resource type="Script" path="res://Scenes/end.gd" id="8_yykrm"]
+[ext_resource type="Script" uid="uid://cgbh7plmyw114" path="res://Scenes/end.gd" id="8_yykrm"]
 [ext_resource type="AudioStream" uid="uid://iektclks62na" path="res://SFX/shing.wav" id="9_2awvy"]
 [ext_resource type="PackedScene" uid="uid://bwy4gbnvurlpa" path="res://Scenes/3Dsprites/8_candles.tscn" id="9_fxnjf"]
 [ext_resource type="Texture2D" uid="uid://bbcwka0ahfpo3" path="res://Textures/complete.png" id="10_nrv0r"]
 [ext_resource type="PackedScene" uid="uid://cb348yautmxlc" path="res://Scenes/3Dsprites/Cage.tscn" id="10_xjeco"]
-[ext_resource type="PackedScene" uid="uid://dh7hrq6otcque" path="res://Scenes/Lever.tscn" id="19_s80er"]
+[ext_resource type="PackedScene" path="res://Scenes/Lever.tscn" id="19_s80er"]
 [ext_resource type="Texture2D" uid="uid://m2rl8yqvshd1" path="res://Textures/cage.png" id="20_2awvy"]
-[ext_resource type="Script" uid="uid://cpunk8fb0g7qq" path="res://Scenes/DoorOpen.gd" id="20_8jhox"]
+[ext_resource type="Script" path="res://Scenes/DoorOpen.gd" id="20_8jhox"]
 [ext_resource type="Texture2D" uid="uid://ckn3h14l4gujk" path="res://Textures/hardwood_floor.png" id="21_8jhox"]
 [ext_resource type="Script" uid="uid://ch788dx0r5mx2" path="res://Scenes/key.gd" id="22_hed5s"]
 
@@ -276,7 +277,143 @@ environment = SubResource("Environment_gmj2a")
 [node name="Enemies" type="Node3D" parent="SubC/Sub" unique_id=374897469]
 
 [node name="Enemy" parent="SubC/Sub/Enemies" unique_id=439418596 instance=ExtResource("3_s80er")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.108429, 1.3732011, -22.575895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.200599, 1.3439709, -22.623583)
+player_path = NodePath("../../Player")
+
+[node name="Enemy12" parent="SubC/Sub/Enemies" unique_id=603703522 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0030210018, 1.3439709, -36.55155)
+player_path = NodePath("../../Player")
+
+[node name="Enemy13" parent="SubC/Sub/Enemies" unique_id=431271740 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.097267, 1.3439709, -57.695145)
+player_path = NodePath("../../Player")
+
+[node name="Enemy14" parent="SubC/Sub/Enemies" unique_id=2072431054 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.097267, 1.3439709, -43.48811)
+player_path = NodePath("../../Player")
+
+[node name="Enemy15" parent="SubC/Sub/Enemies" unique_id=1804942139 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.097267, 1.3439709, -34.110077)
+player_path = NodePath("../../Player")
+
+[node name="Enemy16" parent="SubC/Sub/Enemies" unique_id=1850922076 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.141495, 1.3439709, -40.381584)
+player_path = NodePath("../../Player")
+
+[node name="Enemy17" parent="SubC/Sub/Enemies" unique_id=809086350 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.132446, 1.3439709, -44.1427)
+player_path = NodePath("../../Player")
+
+[node name="Enemy18" parent="SubC/Sub/Enemies" unique_id=1796970492 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.132446, 1.3439709, -35.32831)
+player_path = NodePath("../../Player")
+
+[node name="Enemy19" parent="SubC/Sub/Enemies" unique_id=138019557 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.69962, 1.3439709, -44.97225)
+player_path = NodePath("../../Player")
+
+[node name="Enemy20" parent="SubC/Sub/Enemies" unique_id=1941471621 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.69962, 1.3439709, -60.71029)
+player_path = NodePath("../../Player")
+
+[node name="Enemy21" parent="SubC/Sub/Enemies" unique_id=1162480400 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.49246, 1.3439709, -68.63486)
+player_path = NodePath("../../Player")
+
+[node name="Enemy22" parent="SubC/Sub/Enemies" unique_id=1987479403 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.352859, 1.3439709, -72.173874)
+player_path = NodePath("../../Player")
+
+[node name="Enemy25" parent="SubC/Sub/Enemies" unique_id=115851522 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.328641, 1.3439709, -58.789124)
+player_path = NodePath("../../Player")
+
+[node name="Enemy27" parent="SubC/Sub/Enemies" unique_id=854685376 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.513281, 1.3439709, -60.105118)
+player_path = NodePath("../../Player")
+
+[node name="Enemy26" parent="SubC/Sub/Enemies" unique_id=1991642120 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6466427, 1.3439709, -69.40038)
+player_path = NodePath("../../Player")
+
+[node name="Enemy23" parent="SubC/Sub/Enemies" unique_id=1596545579 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8760023, 1.3439709, -78.7565)
+player_path = NodePath("../../Player")
+
+[node name="Enemy24" parent="SubC/Sub/Enemies" unique_id=1265705001 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.886284, 1.3439709, -78.7565)
+player_path = NodePath("../../Player")
+
+[node name="Enemy2" parent="SubC/Sub/Enemies" unique_id=390100158 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.390351, 1.3439709, -14.1609535)
+player_path = NodePath("../../Player")
+
+[node name="Enemy3" parent="SubC/Sub/Enemies" unique_id=1608201310 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.12306, 1.3439709, -16.572926)
+player_path = NodePath("../../Player")
+
+[node name="Enemy4" parent="SubC/Sub/Enemies" unique_id=119474442 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.385756, 1.3439709, -21.763302)
+player_path = NodePath("../../Player")
+
+[node name="Enemy5" parent="SubC/Sub/Enemies" unique_id=59287133 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.95925, 1.3439709, -17.868633)
+player_path = NodePath("../../Player")
+
+[node name="Enemy6" parent="SubC/Sub/Enemies" unique_id=1961636047 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.361786, 1.3439709, -38.390846)
+player_path = NodePath("../../Player")
+
+[node name="Enemy8" parent="SubC/Sub/Enemies" unique_id=289790279 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.354237, 1.3439709, -36.173454)
+player_path = NodePath("../../Player")
+
+[node name="Enemy9" parent="SubC/Sub/Enemies" unique_id=391543628 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.992266, 1.3439709, -56.45848)
+player_path = NodePath("../../Player")
+
+[node name="Enemy10" parent="SubC/Sub/Enemies" unique_id=372826528 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.935986, 1.3439709, -51.288593)
+player_path = NodePath("../../Player")
+
+[node name="Enemy11" parent="SubC/Sub/Enemies" unique_id=1974053597 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.935986, 1.3439709, -62.43131)
+player_path = NodePath("../../Player")
+
+[node name="Enemy7" parent="SubC/Sub/Enemies" unique_id=698909082 instance=ExtResource("3_s80er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.488384, 1.3439709, -43.563683)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged" parent="SubC/Sub/Enemies" unique_id=728336906 instance=ExtResource("5_nrv0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.133047, 1.295645, -31.426762)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged2" parent="SubC/Sub/Enemies" unique_id=980503791 instance=ExtResource("5_nrv0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.133043, 1.25, -43.477528)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged3" parent="SubC/Sub/Enemies" unique_id=1275595151 instance=ExtResource("5_nrv0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.384135, 1.25, -56.083546)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged4" parent="SubC/Sub/Enemies" unique_id=509704843 instance=ExtResource("5_nrv0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.436315, 1.25, -29.62758)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged6" parent="SubC/Sub/Enemies" unique_id=2037382792 instance=ExtResource("5_nrv0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.151672, 1.25, -34.761154)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged5" parent="SubC/Sub/Enemies" unique_id=1258926191 instance=ExtResource("5_nrv0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.750606, 1.25, -29.62758)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged7" parent="SubC/Sub/Enemies" unique_id=1688580405 instance=ExtResource("5_nrv0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.419616, 1.25, -58.91867)
+player_path = NodePath("../../Player")
+
+[node name="enemyRanged8" parent="SubC/Sub/Enemies" unique_id=218351514 instance=ExtResource("5_nrv0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.699355, 1.25, -70.82182)
 player_path = NodePath("../../Player")
 
 [node name="Player" parent="SubC/Sub" unique_id=240721311 instance=ExtResource("2_s8nj6")]
