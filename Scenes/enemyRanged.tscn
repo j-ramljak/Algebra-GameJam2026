@@ -15,10 +15,6 @@ height = 3.084961
 height = 0.7
 radius = 13.0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_qi2p4"]
-height = 0.7
-radius = 21.0
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kk8la"]
 height = 0.7
 radius = 18.0
@@ -190,6 +186,10 @@ region = Rect2(0, 768, 256, 256)
 atlas = ExtResource("4_bo66h")
 region = Rect2(256, 256, 256, 256)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1xih"]
+atlas = ExtResource("4_bo66h")
+region = Rect2(0, 768, 256, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bo66h"]
 atlas = ExtResource("4_bo66h")
 region = Rect2(256, 768, 256, 256)
@@ -233,6 +233,9 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_g1xih")
+}, {
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_bo66h")
 }, {
@@ -283,13 +286,6 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="agrro" unique_id=922108228]
 shape = SubResource("CylinderShape3D_4gyqm")
-
-[node name="lose_agrro" type="Area3D" parent="." unique_id=1696981030]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="lose_agrro" unique_id=873599682]
-shape = SubResource("CylinderShape3D_qi2p4")
 
 [node name="chase" type="Area3D" parent="." unique_id=1909237939]
 collision_layer = 0
@@ -354,18 +350,23 @@ texture = ExtResource("2_kk8la")
 transform = Transform3D(1.185, 0, 0, 0, 1.185, 0, 0, 0, 1.185, 0, 0.27, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_x2e2k")
-animation = &"Aim"
+animation = &"Shoot"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Visuals" unique_id=1698001410]
 stream = ExtResource("5_easwj")
 volume_db = -1.0
 max_polyphony = 3
 
-[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=2090465743]
+[node name="Detection" type="RayCast3D" parent="." unique_id=1144372940]
+target_position = Vector3(0, 0, -1)
+
+[node name="DeathSFX2" type="AudioStreamPlayer3D" parent="." unique_id=1454618992]
 stream = ExtResource("4_i4llj")
-volume_db = -3.0
+volume_db = -6.0
+unit_size = 30.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="agrro" to="." method="_on_agrro_area_entered"]
-[connection signal="area_exited" from="lose_agrro" to="." method="_on_lose_agrro_area_exited"]
-[connection signal="area_exited" from="chase" to="." method="_on_chase_area_exited"]
+[connection signal="body_entered" from="agrro" to="." method="_on_agrro_body_entered"]
+[connection signal="body_exited" from="agrro" to="." method="_on_agrro_body_exited"]
+[connection signal="body_entered" from="chase" to="." method="_on_chase_body_entered"]
+[connection signal="body_exited" from="chase" to="." method="_on_chase_body_exited"]

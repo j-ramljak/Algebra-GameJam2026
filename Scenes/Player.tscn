@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://642rrmrhg17k" path="res://Textures/gun-sheet.png" id="6_megsn"]
 [ext_resource type="Texture2D" uid="uid://blli2t8r0rtv6" path="res://Textures/Health_bar_over.png" id="10_ksbbd"]
 [ext_resource type="Texture2D" uid="uid://87ub6hsk6sls" path="res://Textures/Health_bar_top.png" id="11_glx4g"]
-[ext_resource type="Script" path="res://Scenes/DEATH.gd" id="12_glx4g"]
+[ext_resource type="Script" uid="uid://bg3ooe52uyton" path="res://Scenes/DEATH.gd" id="12_glx4g"]
 [ext_resource type="Texture2D" uid="uid://tn8ippcnsoek" path="res://Textures/fail.png" id="13_miouo"]
 [ext_resource type="AudioStream" uid="uid://ca4gr14pehlmb" path="res://SFX/PlayerDeath.wav" id="14_o3h8g"]
 
@@ -276,6 +276,7 @@ metadata/_snap_enabled = true
 metadata/_snap_count = 4
 
 [node name="Player" type="CharacterBody3D" unique_id=240721311 groups=["Player"]]
+collision_layer = 5
 script = ExtResource("1_3hthm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=110782279]

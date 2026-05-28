@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://iektclks62na" path="res://SFX/shing.wav" id="15_m620h"]
 [ext_resource type="Texture2D" uid="uid://bbcwka0ahfpo3" path="res://Textures/complete.png" id="16_3b6ve"]
 [ext_resource type="PackedScene" uid="uid://cxcmsmjjpjyuc" path="res://enemy.tscn" id="17_m620h"]
+[ext_resource type="PackedScene" uid="uid://bswjj38iav8pi" path="res://Scenes/enemyRanged.tscn" id="20_el8jc"]
 
 [sub_resource type="Environment" id="Environment_m620h"]
 background_mode = 2
@@ -470,10 +471,6 @@ player_path = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.105255, 1.3732011, 29.96119)
 player_path = NodePath("../../Player")
 
-[node name="Enemy10" parent="SubC/Sub/Enemies" unique_id=1883079902 instance=ExtResource("17_m620h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.047962, 1.3732011, 25.297745)
-player_path = NodePath("../../Player")
-
 [node name="Enemy11" parent="SubC/Sub/Enemies" unique_id=2007042541 instance=ExtResource("17_m620h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3446217, 1.3732011, 26.855652)
 player_path = NodePath("../../Player")
@@ -485,5 +482,8 @@ player_path = NodePath("../../Player")
 [node name="Enemy3" parent="SubC/Sub/Enemies" unique_id=1304294235 instance=ExtResource("17_m620h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.73003, 1.3732011, 12.966693)
 player_path = NodePath("../../Player")
+
+[node name="enemyRanged" parent="SubC/Sub/Enemies" unique_id=601559863 instance=ExtResource("20_el8jc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.601854, 1.4060748, 26.30841)
 
 [connection signal="timeout" from="SubC/Sub/Objective/Timer" to="SubC/Sub/Objective" method="_on_timer_timeout"]

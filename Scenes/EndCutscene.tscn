@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://y4twho61lmc"]
 
-[ext_resource type="Script" uid="uid://dl7kjkiq3ypfk" path="res://Scenes/end_cutscene.gd" id="1_bhn4g"]
+[ext_resource type="Script" path="res://Scenes/end_cutscene.gd" id="1_bhn4g"]
 [ext_resource type="Resource" uid="uid://mashf1xt7x4r" path="res://Dialogues/EndCutsceneDialogue.dialogue" id="2_drcjr"]
 [ext_resource type="AudioStream" uid="uid://o3s8euubvxv3" path="res://SFX/Egg2.wav" id="3_mpdio"]
 [ext_resource type="AudioStream" uid="uid://bda2bcyx6cua8" path="res://SFX/Egg1.wav" id="4_bhe4e"]
